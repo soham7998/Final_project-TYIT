@@ -9,7 +9,7 @@ def button_click():
     email = request.form.get('email')
     password = request.form.get('password')
 
-    client = MongoClient('mongodb+srv://sohamshahh:ADMIN@cluster0.x5owqbs.mongodb.net/')
+    client = MongoClient('mongodb+srv://sohamshahh:soham2003@cluster0.x5owqbs.mongodb.net/')
     db = client['mydatabase']
     users_collection = db['users']
 
@@ -25,7 +25,7 @@ def submit_login():
     username = request.form.get('username')
     password = request.form.get('password')
 
-    client = MongoClient('mongodb+srv://sohamshahh:ADMIN@cluster0.x5owqbs.mongodb.net/')
+    client = MongoClient('mongodb+srv://sohamshahh:soham2003@cluster0.x5owqbs.mongodb.net/')
     db = client['mydatabase']
     users_collection = db['users']
 

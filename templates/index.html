@@ -38,6 +38,7 @@
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
+            font-size: 24px;
         }
 
         header {
@@ -171,19 +172,27 @@ footer {
 }
 
 
+#da a {
+    text-decoration: none;
+    color: #000;
+}
 
-    #da a {
-            text-decoration: none;
-            color: #000;
-        }
-        #de a {
-            text-decoration: none;
-            color: #000;
-        }
-        #ds a {
-            text-decoration: none;
-            color: #000;
-        }
+#de a {
+    text-decoration: none;
+    color: #000;
+}
+
+#ds a {
+    text-decoration: none;
+    color: #000;
+}
+
+#da a:hover,
+#de a:hover,
+#ds a:hover {
+    color: green; /* Change to your desired hover color */
+}
+
         .page-content {
             display: flex;
             justify-content: center;
@@ -214,6 +223,7 @@ a {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            font-size: 24px;
         }
 
         .thumbnail-container {
@@ -263,6 +273,20 @@ a {
             border-radius: 5px;
         }
 
+  @keyframes slideInFromBottom {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation-duration: 1s; /* Adjust the duration as needed */
+            animation-timing-function: ease-out; /* Adjust the timing function as needed */
+            animation-fill-mode: both;
+        }
 </style>
 </head>
 <body>
@@ -283,7 +307,7 @@ a {
     </div>
 
     <header>
-        <h1>D3Hub - Explore Data World!📈</h1>
+        <h1>D3Hub - Why Data is Important?📈</h1>
     </header>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -311,16 +335,35 @@ a {
         <img id="changing-image" src="./static/Compare.jpg" alt="Changing Image">
     </div>
 
-    <section id="home">
-        <h2>Welcome there📊</h2>
-        <p>D3Hub is your ultimate destination for everything related to Data Analyst, Data Engineer, and Data Science. Whether you're exploring tutorials, seeking certificates, or following a roadmap to success, we've got you covered on your journey in the world of data.
-             Welcome to a platform designed to help you thrive in the exciting fields of data analysis, engineering, and science!</p>
+   <section id="home" class="animate-on-scroll">
+        <h2 style="font-size: 30px;font-family: 'Times New Roman', Times, serif;">Welcome there📊</h2>
+        <p style="font-size: 24px;font-family: 'Times New Roman', Times, serif;">D3Hub is your ultimate destination for everything related to Data Analyst, Data Engineer, and Data Science. Whether you're exploring tutorials, seeking certificates, or following a roadmap to success, we've got you covered on your journey in the world of data. Welcome to a platform designed to help you thrive in the exciting fields of data analysis, engineering, and science!</p>
     </section>
+
+    <script>
+        var lastScrollTop = 0;
+
+        window.addEventListener('scroll', function () {
+            var currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var direction = currentScrollTop > lastScrollTop ? 'down' : 'up';
+            var element = document.getElementById('home');
+
+            if (direction === 'up') {
+                element.classList.add('animate-on-scroll');
+                element.style.animationName = 'slideInFromTop';
+            } else {
+                element.classList.add('animate-on-scroll');
+                element.style.animationName = 'slideInFromBottom';
+            }
+
+            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+        });
+    </script>
 
     <section id="da">
         <a href="/DA">
             <h2>Data Analyst,Who is Data Analyst?</h2><p>Explore More.</p></a>
-        <p>A data analyst is a professional who gathers, organizes, and analyzes information from various sources to help an organization achieve business goals.</p>
+        <p>A Data analyst is a professional who gathers, organizes, and analyzes information from various sources to help an organization achieve business goals.</p>
     <div class="page-content">
         <div class="column">
             <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
@@ -343,7 +386,7 @@ a {
     <section id="de">
         <a href="/DE">
         <h2>Data Engineer</h2><p>Explore More</p></a>
-        <p>Data engineers work in various settings to build systems that collect, manage, and convert raw data into usable information for data scientists and business analysts to interpret.
+        <p>Data Engineers work in various settings to build systems that collect, manage, and convert raw data into usable information for data scientists and business analysts to interpret.
             Their ultimate goal is to make data accessible so that organisations can use it to evaluate and optimise their performance.</p>
     <div class="page-content">
         <div class="column">
@@ -367,9 +410,9 @@ a {
      <section id="group-chats">
         <h2>Group Discusssion - Want to know more? Do signup!</h2>
     </section>
-    
+
     <!-- Add the Signup Overlay below -->
-    
+
     <div class="thumbnail-container">
         <img class="thumbnail" src="./static/pro1.jpg" alt="Thumbnail Image" width="60%">
         <div class="overlay">
@@ -383,7 +426,7 @@ a {
     <section id="ds">
         <a href ="/DS">
         <h2>Data Science</h2><p>Explore More</p></a>
-        <p>Data science is a multidisciplinary field that uses a combination of principles and practices to analyze large amounts of data. It combines principles and practices from the fields of: Mathematics, Statistics, Artificial intelligence, Computer engineering.</p>
+        <p>Data Science is a multidisciplinary field that uses a combination of principles and practices to analyze large amounts of data. It combines principles and practices from the fields of: Mathematics, Statistics, Artificial intelligence, Computer engineering.</p>
         <div class="page-content">
             <div class="column">
                 <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
@@ -420,10 +463,10 @@ a {
     <div style="float: right; text-align: right;">
         <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;" target="_blank">Learn more</a>
         <p style="font-size: 17px;">Connect With Me
-        <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
-        <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |
-        <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> |
-        <a href="https://twitter.com/sohamshahh/" target="_blank" style="color: white; text-decoration: none;">Twitter</a></p>
+        <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none; text-align: right;">Github</a> |
+        <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none; text-align: right;">LinkedIn</a> |
+        <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;text-align: right;">Instagram</a> |
+        <a href="https://twitter.com/sohamshahh/" target="_blank" style="color: white; text-decoration: none;text-align: right;">Twitter</a></p>
 
     </div>
     <div style="clear: both;"></div>

@@ -23,7 +23,6 @@ def button_click():
 @app.route('/databaselogin', methods=['POST'])
 def submit_login():
     username = request.form.get('username')
-    email = request.form.get('email')
     password = request.form.get('password')
 
     client = MongoClient('mongodb+srv://sohamshahh:soham2003@cluster0.x5owqbs.mongodb.net/')
@@ -31,7 +30,7 @@ def submit_login():
     users_collection = db['users']
 
     # Retrieve user by username
-    query = {'username': username, 'email':email,'password': password}
+    query = {'username': username, 'password': password}
     user = users_collection.find_one(query)
 
     if user:

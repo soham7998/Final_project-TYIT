@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Engineer - D3Hub</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./static/react.png"  sizes="34x34" />
+    <style>
+        @media (max-width: 768px) {
+    .navbar-left, .navbar-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar a, .navbar button {
+        margin: 10px 0;
+    }
+
+    .page-content {
+        flex-direction: column;
+    }
+
+    .column {
+        flex: 0 0 100%;
+    }
+}
+
+/* Your existing styles remain unchanged below this line */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: rgb(61, 205, 198);
+            padding: 8px;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #444;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left a {
+            margin: 0 20px;
+        }
+        .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+        .navbar-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-right button {
+            margin-left: 0px;
+            padding: 10px 10px;
+            background-color: rgb(243, 178, 103);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+        margin-top: auto;
+        font-size: 16px;
+        color: #777;
+        width: 100%;
+        text-align: center;
+        padding: 16px;
+        background-color: #333;
+    }
+
+        .page-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh; /* Adjust the height as needed */
+        }
+
+        .column {
+            flex: 0 0 30%; /* Each column takes 30% of the container width */
+            padding: 20px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .role-description {
+            text-align: center;
+            /* padding: 20px; */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* margin: 10px; */
+            border-radius: 10px;
+            color: black;
+        }
+
+        .role-description h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .role-description p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .role-description b {
+            font-size: 20px;
+        }
+    .zoomable-image {
+        width: 80%;
+        height: auto;
+        object-fit: contain;
+        cursor: zoom-in;
+        transition: transform 0.3s ease;
+    }
+
+    .zoomable-image:hover {
+        transform: scale(1.2);
+    }
+    a {
+        text-decoration: none;
+        color: whitesmoke; /* This makes the link color the same as its parent element's color */
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="/">Home</a>
+            <a href="/DA">Data Analyst</a>
+            <a href="/DE">Data Engineer</a>
+            <a href="/DS">Data Science</a>
+        </div>
+        <div class="navbar-center"></div>
+        <div class="navbar-right">
+            <a href="login">
+            <button>Login</button></a>
+            <button onclick="location.href='/signup'" style="background-color: rgb(243, 178, 103);">Signup</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>Data Engineer - D3Hub</h1>
+    </header>
+    <div class="role-description">
+        <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Role of a Data Engineer</h2>
+        <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 18px;"><b>A Data Engineer plays a crucial role in the field of data management, ensuring that organizations can effectively collect, store, process, and analyze large volumes of data.
+             The role of a Data Engineer involves various responsibilities related to the design, construction, and maintenance of the systems and architectures that enable efficient data processing</b>
+           <section>
+           <p><b>Data Integration:</b>Integrating data from different sources, ensuring consistency and reliability,Building and maintaining ETL (Extract, Transform, Load) processes for data movement.</p>
+           <p><b>Data Modeling:</b>Developing data models and schemas to represent the structure of the data,Optimizing data models for performance and storage efficiency..</p>
+            <p><b>Data Processing and Transformation:</b>Implementing data processing solutions for real-time and batch processing,Transforming raw data into a usable format for analysis and reporting.</p>
+            <p><b>Infrastructure Management:</b> Managing and optimizing the infrastructure for data storage and processing,Working with cloud platforms and big data technologies.</p>
+            <p><b>Performance Optimization:</b>Monitoring and optimizing the performance of databases and data processing systems.</p>
+            <p><b>Continuous Learning:</b>Staying updated with the latest technologies and trends in data engineering,Exploring new tools and frameworks to improve data engineering processes.</p>
+            <p><b>Collaboration with Data Scientists and Analysts:</b>Collaborating with data scientists and analysts to understand their data requirements,
+                Providing clean and well-organized data for analysis and reporting.</p></p>
+            <p><b>Data Engineering Tools:</b>Collaborating with data scientists and analysts to understand their data requirements,Providing clean and well-organized data for analysis and reporting.</p></p>
+           </section>
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">YouTube</h2>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Why Data Engineering?</h2>
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/wyGAYa2UMXQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Certificate</h2>
+            <a href="https://www.coursera.org/professional-certificates/ibm-data-engineer" target="_blank">
+                <img class="zoomable-image" src="static/DE.jpeg" alt="Certificate Thumbnail">
+            </a>
+            <p>Explore various certificates for Data Engineer.</p>
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Data Engineering</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/mFImgE4jpB8" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Data Engineering Books</h2>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Books</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <!-- <iframe width="460" height="250" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+            <a href="https://amzn.eu/d/auDyguV" target="_blank">
+                <img class="zoomable-image" src="static/DE book.jpg" alt="Certificate Thumbnail">
+            </a>
+            <p>Fundamentals of Data Engineer.</p>
+        </div>
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Books</h2>
+            <a href="https://amzn.eu/d/9jbsV3V" target="_blank">
+                <img class="zoomable-image" src="static/De book2.jpeg" alt="Certificate Thumbnail">
+            </a>
+            <p>Big Data.</p>
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Books</h2>
+            <a href="https://amzn.eu/d/etqd9Qe" target="_blank">
+                <img class="zoomable-image" src="static/De book3.jpg" alt="Certificate Thumbnail">
+            </a>
+            <p>Data Warehouse Toolkit.</p>
+        </div>
+    </div>
+<!-- PROJECTS -->
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Real Projects</h2>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Project</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/yZKJFKu49Dk" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Certificate</h2>
+            <a href="https://www.coursera.org/specializations/gcp-data-machine-learning" target="_blank">
+                <img class="zoomable-image" src="static/Google Data Engineer.jpeg" alt="Certificate Thumbnail">
+            </a>
+            <p>Explore various certificates for Data Engineer.</p>
+        </div>
+       
+        <div class="modal fade" id="certificatesModal" tabindex="-1" role="dialog" aria-labelledby="certificatesModalLabel" aria-hidden="true">
+            <!-- ... Modal content for certificates ... -->
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Roadmap</h2>
+            <a href="static/DE roadmap.jpg" target="_blank">
+                <img class="zoomable-image" src="static/DE roadmap.jpg" alt="Certificate Thumbnail">
+            </a>
+            <p style="font-size: 16px;">Follow this roadmap to become a successful Data Engineer.</p>
+        </div>
+    </div>
+
+     <!-- TOOLS -->
+
+     <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Tools</h2>
+     <div class="page-content">
+         <div class="column">
+             <h2 style="font-size: 20px;">Tools</h2>
+             <!-- Replace the following iframe with the actual YouTube video embed code -->
+             <iframe width="460" height="250" src="https://www.youtube.com/embed/9FVchWw3EbU" frameborder="0" allowfullscreen></iframe>
+            </div>
+         <div class="column" data-toggle="modal" data-target="#certificatesModal">
+             <h2 style="font-size: 20px;">Skills</h2>
+             <a href="static/DE skill.jpeg" target="_blank">
+                 <img class="zoomable-image" src="static/DE skill.jpeg" alt="Certificate Thumbnail">
+             </a>
+         </div>
+         
+         <div class="modal fade" id="certificatesModal" tabindex="-1" role="dialog" aria-labelledby="certificatesModalLabel" aria-hidden="true">
+             <!-- ... Modal content for certificates ... -->
+         </div>
+         <div class="column">
+             <h2 style="font-size: 20px;">Tools</h2>
+             <iframe width="460" height="250" src="https://www.youtube.com/embed/JPGmdLhIB9s" frameborder="0" allowfullscreen></iframe>
+            </div>
+     </div>
+      <!-- MY PROJECTS -->
+      <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">My Projects</h2>
+      <p style="font-weight: bolder;" ><b>Data Engineering Projects</b></p>
+      <div class="page-content">
+          <div class="column">
+              <h2 style="font-size: 20px;">Project 1</h2>
+              <p style="font-weight: bold; color: #333;">Youtube-Data-Engineering-End-to-End-Analysis</p>
+              <a href="https://github.com/soham7998/Data-Engineering-Youtube-End-to-End-Project" target="_blank">
+                  <img src="./static/netflix EDA.jpeg" alt="Project 1" width="460" height="250">
+                  </a>
+          </div>
+          <div class="column">
+              <h2 style="font-size: 20px;">Project 2</h2>
+              <p style="font-weight: bold; color: #333;"><b>Spotify-Data-Pipeline-Project </b></p>
+              <a href="https://github.com/soham7998/Spotify-end-to-end-data-pipeline-project" target="_blank">
+                  <img src="./static/ds.jpg" alt="Project 1" width="460" height="250">
+                  </a>
+          </div>
+      </div>
+    <footer>
+        <div style="float: left; text-align: left; width: 33%;">
+            <p style="display: inline-block;font-size: 18px;">"D3Hub?"
+                <p  style="color: white;font-size: 18px;">"All about the data world"</p>
+        </div>
+        <div style="display: inline-block; text-align: center; width: 33%;">
+            <p>Made by Soham Shah</p>
+            <p style="color: white; font-size: 18px;">&copy; 2024 D3Hub. All rights reserved.</p>
+            <p style="display: inline-block; font-size: 18px;">
+                <a href="/" style="text-decoration: none; color: white;">Home</a> |
+                <a href="/DA" style="text-decoration: none; color: white;">Data Analyst</a> |
+                <a href="/DE" style="text-decoration: none; color: white;">Data Engineer</a> | 
+                <a href="/DS" style="text-decoration: none; color: white;">Data Science</a>. 
+            </p>
+        </div>
+        <div style="float: right; text-align: right; width: 33%;">
+            <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;" target="_blank">Learn more</a>
+            <p style="font-size: 17px;">Connect With Me
+            <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
+            <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |
+            <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> |
+            <a href="https://twitter.com/sohamshahh" target="_blank" style="color: white; text-decoration: none;">Twitter</a></p>
+    
+        </div>
+        <div style="clear: both;"></div>
+    </footer>
+</body>
+</html>

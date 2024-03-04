@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3Hub - Explore Data World</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="static/react.png" sizes="34x34" />
+ <style>
+         /* Add the following styles for mobile responsiveness */
+         @media (max-width: 768px) {
+            .navbar-left, .navbar-right {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar a, .navbar button {
+                margin: 10px 0;
+            }
+
+            #changing-image {
+                width: 100%;
+            }
+
+            .page-content {
+                flex-direction: column;
+            }
+
+            .column {
+                flex: 0 0 100%;
+            }
+        }
+
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #444;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border-bottom: 2px solid black;
+            padding-bottom: 5px;
+        }
+
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left a {
+            margin: 0 10px;
+        }
+        .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+        .navbar-center {
+            flex: 1; /* Allow the center to take as much space as it needs */
+            text-align: center;
+        }
+
+        .navbar-right {
+            display: flexbox;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .navbar-right button {
+            margin-left: 0px;
+            padding: 10px 10px;
+            background-color: rgb(243, 178, 103);
+            color: white;
+            border: none;
+            cursor: pointer;
+            /* font-family:Verdana, Geneva, Tahoma, sans-serif; */
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        #image-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        #changing-image {
+            width: 50%;
+            height: 40%;
+            animation: changeImage 4s infinite;
+        }
+
+        @keyframes changeImage {
+            0%, 25% {
+                opacity: 1;
+            }
+            50%, 75% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+footer {
+    margin-top: auto;
+    font-size: 16px;
+    color: #777;
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    background-color: #333;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-center {
+        margin-bottom: 10px;
+    }
+}
+
+.footer-right {
+    text-align: center;
+}
+
+
+
+    #da a {
+            text-decoration: none;
+            color: #000;
+        }
+        #de a {
+            text-decoration: none;
+            color: #000;
+        }
+        #ds a {
+            text-decoration: none;
+            color: #000;
+        }
+        .page-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh; /* Adjust the height as needed */
+            overflow-x:scroll;
+        }
+
+        .column {
+            flex: 0 0 30%; /* Each column takes 30% of the container width */
+            padding: 20px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    #da::after, #de::after,#de::after {
+    content: '';
+    display: block;
+    border-top: 2px solid black;
+    margin: 20px 0; /* Adjust the margin as needed */
+}
+a {
+        text-decoration: none;
+        color: whitesmoke; /* This makes the link color the same as its parent element's color */
+    }
+    body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .thumbnail-container {
+            position: relative;
+            width: 100%;
+            height: 400px; /* Set the height of your thumbnail container */
+            overflow: hidden;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the entire container */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Adjust the alpha channel to control transparency */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .overlay h2 {
+            margin-bottom: 20px;
+        }
+
+        .signup-message {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .signup-button {
+            padding: 10px 20px;
+            background-color: rgb(243, 178, 103);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+</style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="/">Home</a>
+            <a href="/DA">Data Analyst</a>
+            <a href="/DE">Data Engineer</a>
+            <a href="/DS">Data Science</a>
+        </div>
+        <div class="navbar-center"></div>
+        <div class="navbar-right">
+            <a href="login">
+            <button>Login</button></a>
+            <button onclick="location.href='/signup'"font-size:18px; style="background-color: rgb(243, 178, 103);">Signup</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>D3Hub - Explore Data World!📈</h1>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="container mt-3">
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}" role="alert" id="flash-message">
+                    {{ message ,"Now you can access Discussion-Forum"}}
+                </div>
+            {% endfor %}
+        </div>
+
+        <script>
+            setTimeout(function() {
+                var flashMessage = document.getElementById('flash-message');
+                flashMessage.remove();
+            }, 10000);
+        </script>
+    {% endif %}
+{% endwith %}
+
+
+
+    <div id="image-row">
+        <img id="changing-image" src="./static/Compare.jpg" alt="Changing Image">
+    </div>
+
+    <section id="home">
+        <h2>Welcome there📊</h2>
+        <p>D3Hub is your ultimate destination for everything related to Data Analyst, Data Engineer, and Data Science. Whether you're exploring tutorials, seeking certificates, or following a roadmap to success, we've got you covered on your journey in the world of data.
+             Welcome to a platform designed to help you thrive in the exciting fields of data analysis, engineering, and science!</p>
+    </section>
+
+    <section id="da">
+        <a href="/DA">
+            <h2>Data Analyst,Who is Data Analyst?</h2><p>Explore More.</p></a>
+        <p>A data analyst is a professional who gathers, organizes, and analyzes information from various sources to help an organization achieve business goals.</p>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/JTHyfv_GUCw?si=4poP2JZ4f-9eGJK2" frameborder="0" allowfullscreen></iframe>
+        </div>
+            <div class="column">
+                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
+                <!-- Replace the following iframe with the actual YouTube video embed code -->
+                <iframe width="460" height="250" src="https://www.youtube.com/embed/qlH-7m-At4I" frameborder="0" allowfullscreen></iframe>
+
+            </div>
+            <div class="column">
+                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
+                <!-- Replace the following iframe with the actual YouTube video embed code -->
+                <iframe width="460" height="250" src="https://www.youtube.com/embed/_gF2Mj1354M?si=XMjyxvulvlDro6W8" frameborder="0" allowfullscreen></iframe>
+            </div>
+    </section>
+</div>
+    <section id="de">
+        <a href="/DE">
+        <h2>Data Engineer</h2><p>Explore More</p></a>
+        <p>Data engineers work in various settings to build systems that collect, manage, and convert raw data into usable information for data scientists and business analysts to interpret.
+            Their ultimate goal is to make data accessible so that organisations can use it to evaluate and optimise their performance.</p>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/XW0YptcgZSk?si=Jvr5sJbSKJnFUcMD" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/HxdoBLc5_Qc?si=jjZjKr27AtVDoc9z" frameborder="0" allowfullscreen></iframe>
+        </div>
+         <div class="column">
+            <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/sGPWVYriqW4?si=GPlX_fsjTbXcUycA" frameborder="0" allowfullscreen></iframe>
+        </div>
+</div>
+     </section>
+
+     <section id="group-chats">
+        <h2>Group Discusssion - Want to know more? Do signup!</h2>
+    </section>
+    
+    <!-- Add the Signup Overlay below -->
+    
+    <div class="thumbnail-container">
+        <img class="thumbnail" src="./static/pro1.jpg" alt="Thumbnail Image" width="60%">
+        <div class="overlay">
+            <h2>Welcome to Group Discusssion's</h2>
+            <div class="signup-message">
+                Sign up to join our community and access Discussion- Forum!
+            </div>
+            <button class="signup-button" onclick="location.href='/signup'">Sign Up</button>
+        </div>
+    </div>
+    <section id="ds">
+        <a href ="/DS">
+        <h2>Data Science</h2><p>Explore More</p></a>
+        <p>Data science is a multidisciplinary field that uses a combination of principles and practices to analyze large amounts of data. It combines principles and practices from the fields of: Mathematics, Statistics, Artificial intelligence, Computer engineering.</p>
+        <div class="page-content">
+            <div class="column">
+                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
+                <!-- Replace the following iframe with the actual YouTube video embed code -->
+                <iframe width="460" height="250" src="https://www.youtube.com/embed/-ETQ97mXXF0?si=UR2WASS-VYQjVLBh" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="column">
+                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
+                <!-- Replace the following iframe with the actual YouTube video embed code -->
+                <iframe width="460" height="250" src="https://www.youtube.com/embed/5QnXkgZAyEw?si=0UOxRzKd7hiT3Rta" frameborder="0" allowfullscreen></iframe>
+            </div>
+             <div class="column">
+                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
+                <!-- Replace the following iframe with the actual YouTube video embed code -->
+                <iframe width="460" height="250" src="https://www.youtube.com/embed/uIUvpJdYgSA?si=K4iBwc0EqYABwyt" frameborder="0" allowfullscreen></iframe>
+            </div>
+    </div>
+</section>
+<footer style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
+    <div style="float: left; text-align: left; width: 33%;">
+        <p style="display: inline-block;font-size: 18px;">"D3Hub?"
+            <p  style="color: white;font-size: 18px;">"All about the data world"</p>
+    </div>
+    <div style="display: inline-block; text-align: center;">
+        <p>Made by Soham Shah</p>
+        <p style="color: white; font-size: 18px;">&copy; 2024 D3Hub. All rights reserved.</p>
+        <p style="display: inline-block; font-size: 18px;">
+            <a href="/" style="text-decoration: none; color: white;">Home</a> |
+            <a href="/DA" style="text-decoration: none; color: white;">Data Analyst</a> |
+            <a href="/DE" style="text-decoration: none; color: white;">Data Engineer</a> |
+            <a href="/DS" style="text-decoration: none; color: white;">Data Science</a>.
+        </p>
+    </div>
+    <div style="float: right; text-align: right;">
+        <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;" target="_blank">Learn more</a>
+        <p style="font-size: 17px;">Connect With Me
+        <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
+        <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |
+        <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> |
+        <a href="https://twitter.com/sohamshahh/" target="_blank" style="color: white; text-decoration: none;">Twitter</a></p>
+
+    </div>
+    <div style="clear: both;"></div>
+</footer>
+<script>
+    function changeToDataScienceImage() {
+        document.getElementById('changing-image').src = './static/Data-Science-Image.jpg';
+        setTimeout(changeToCompareImage, 8000);
+    }
+
+    function changeToCompareImage() {
+        document.getElementById('changing-image').src = './static/Compare.jpg';
+        setTimeout(changeToDataScienceImage, 8000);
+    }
+
+    // Initially start with the first image
+    changeToDataScienceImage();
+</script>
+
+
+
+</body>
+</html>

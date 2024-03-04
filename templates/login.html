@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - D3Hub</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="./static/react.png"  sizes="34x34"/>
+    <!-- <script>
+   function getcookie() {
+    console.log("Login working");
+    let [username,password] = [document.getElementById('username').value,document.getElementById('password').value]
+    let [cookiename,cookiepassword]=[document.cookie.split("=")[0],(document.cookie.split("=")[1]).split('+')[0]];
+    if (cookiename === username) {
+        if (password === cookiepassword) {
+            alert("Login SuccessFul")
+            window.location.href="http://soham27.pythonanywhere.com/";
+        }
+        else{
+            alert("Not Successful")
+            setTimeout(function () {
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+            }, 2000);
+        }
+        
+    }
+}
+</script> -->
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #3494E6, #EC6EAD);
+            background-size: cover;
+            color: white;
+        }
+
+        header {
+            background-color:none;
+            color: white;
+            padding: 0px;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        
+        .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(52, 49, 49, 0.5);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left a {
+            margin: 0 20px;
+        }
+
+        .navbar-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .navbar-right {
+            display:flexbox;
+            align-items: center;
+        }
+
+        .navbar-right button {
+            margin-left: 5px;
+            padding: 10px 10px;
+            background-color: rgb(243, 178, 103);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+
+        .login-form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .login-form h2 {
+            color: black;
+        }
+
+        .login-form label {
+            color: black;
+        }
+
+        .signup-link {
+            margin-top: 10px;
+            text-align: center;
+            color: black;
+        }
+
+        footer {
+        margin-top: auto;
+        font-size: 16px;
+        color: #777;
+        width: 100%;
+        text-align: center;
+        padding: 16px;
+        background-color: #333;
+    }
+    a {
+        text-decoration: none;
+        color: whitesmoke; /* This makes the link color the same as its parent element's color */
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="/">Home</a>
+            <a href="/DA">Data Analyst</a>
+            <a href="/DE">Data Engineer</a>
+            <a href="/DS">Data Science</a>
+        </div>
+        <div class="navbar-center"></div>
+        <div class="navbar-right">
+            <a href="login">
+            <button onclick="location.href='/login'" >Login</button></a>
+            <button onclick="location.href='/signup'" style="background-color: rgb(243, 178, 103); font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 18px;">Signup</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>Login - D3Hub</h1>
+    </header>
+   {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="container mt-3 d-flex justify-content-center align-items-center">
+            <div id="flash-message" class="alert alert-info alert-dismissible fade show" role="alert">
+                {% for category, message in messages %}
+                    {{ message }}
+                {% endfor %}
+                <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+            </div>
+        </div>
+
+        <script>
+            setTimeout(function() {
+                var flashMessage = document.getElementById('flash-message');
+                flashMessage.remove();
+            }, 5000);
+        </script>
+    {% endif %}
+{% endwith %}
+
+
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="/databaselogin"id="contactform" method="POST">
+                <!-- Your login form fields go here -->
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+
+                <!-- <button onclick="getcookie()">Submit</button> -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="signup-link">
+            New User? <a href="/signup">Signup</a>
+        </div>
+    </div>
+    
+    
+<footer>
+        <div style="float: left; text-align: left; width: 33%;">
+            <p style="display: inline-block;font-size: 18px;">"D3Hub?"
+                <p  style="color: white;font-size: 18px;">"All about the data world"</p>
+        </div>
+        <div style="display: inline-block; text-align: center; width: 33%;">
+            <p>Made by Soham Shah</p>
+            <p style="color: white; font-size: 18px;">&copy; 2024 D3Hub. All rights reserved.</p>
+        </div>
+        <div style="float: right; text-align: right; width: 33%;">
+            <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;" target="_blank">Learn more</a>
+            <p style="font-size:16px;">Connect With Me
+            <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
+            <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |
+            <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> |
+            <a href="https://twitter.com/sohamshahh" target="_blank" style="color: white; text-decoration: none;">Twitter</a></p>
+    
+        </div>
+        <div style="clear: both;"></div>
+    </footer>  
+</body>
+</html>

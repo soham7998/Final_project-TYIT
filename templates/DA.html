@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analyst - D3Hub</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="./static/react.png" sizes="32x32" type="image/png">
+
+    <style>
+        @media (max-width: 768px) {
+    .navbar-left, .navbar-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar a, .navbar button {
+        margin: 10px 0;
+    }
+
+    #changing-image {
+        width: 100%;
+    }
+
+    .page-content {
+        flex-direction: column;
+    }
+
+    .column {
+        flex: 0 0 100%;
+    }
+}
+
+/* Your existing styles remain unchanged below this line */
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+             
+        }
+   
+        header {
+            background-color: #333;
+            color: rgb(61, 205, 198);
+            padding: 8px;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #444;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left a {
+            margin: 0 20px;
+        }
+        .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+        .navbar-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-right button {
+            margin-left: 0px;
+            padding: 10px 10px;
+            background-color: rgb(243, 178, 103);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        section {
+            padding: 20px;
+        }
+        
+        footer {
+        margin-top: auto;
+        font-size: 16px;
+        color: #777;
+        width: 100%;
+        text-align: center;
+        padding: 16px;
+        background-color: #333;
+    }
+        .page-content {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 90vh; /* Adjust the height as needed */
+                       
+        }
+
+        .column {
+            flex: 0 0 30%; /* Each column takes 30% of the container width */
+            padding: 20px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .role-description {
+            text-align: center;
+            /* padding: 20px; */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* margin: 10px; */
+            border-radius: 10px;
+            color: black;
+        }
+
+        .role-description h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .role-description p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .role-description b {
+            font-size: 20px;
+        }
+    .zoomable-image {
+        width: 80%;
+        height: auto;
+        object-fit: contain;
+        cursor: zoom-in;
+        transition: transform 0.3s ease;
+    }
+
+    .zoomable-image:hover {
+        transform: scale(1.2);
+    }
+    a {
+        text-decoration: none;
+        color: whitesmoke; /* This makes the link color the same as its parent element's color */
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="/">Home</a>
+            <a href="/DA">Data Analyst</a>
+            <a href="/DE">Data Engineer</a>
+            <a href="/DS">Data Science</a>
+        </div>
+        <div class="navbar-center"></div>
+        <div class="navbar-right">
+            <a href="login">
+            <button>Login</button></a>
+            <button onclick="location.href='/signup'" style="background-color: rgb(243, 178, 103);">Signup</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>Data Analyst - D3Hub</h1>
+    </header>
+    <div class="role-description">
+        <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Role of a Data Analyst</h2>
+        <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 18px;"><b>A data analyst is a professional who interprets and analyzes complex data sets to help companies make informed decisions. The role involves collecting, processing, and analyzing data, and then presenting it in a way that is meaningful and relevant for decision-making.Key aspects of the role of a data analyst:</b>
+           <section>
+           <p><b> Data Collection:</b> Data analysts gather data from various sources, including databases, spreadsheets, and external data sets. They may also use tools to extract information from different platforms.</p>
+           <p><b> Data Cleaning and Processing:</b> Raw data is often messy and needs to be cleaned and processed before analysis. Data analysts clean, organize, and format data to ensure accuracy and consistency.</p>
+            <p><b>Data Analysis:</b> The core responsibility of a data analyst is to analyze data to identify trends, patterns, and insights. They use statistical methods, data visualization, and other analytical techniques to derive meaningful information.</p>
+            <p><b>Data Visualization:</b> Data analysts create visualizations such as charts, graphs, and dashboards to communicate their findings effectively. Visualization helps stakeholders understand complex data and make data-driven decisions.</p>
+            <p><b>Reporting:</b> Data analysts generate reports summarizing their analysis and insights. These reports may be presented to various stakeholders, including executives, managers, or other team members.</p>
+            <p><b>Communication Skills:</b> Data analysts need strong communication skills to convey their findings to non-technical stakeholders. The ability to translate complex data into actionable insights is crucial.</p>
+            <p><b>Collaboration:</b> Data analysts often work collaboratively with other teams, such as IT, marketing, or finance, to understand business needs and align data analysis with organizational goals.</p></p>
+            <p><b>Data Analyst Tools:</b>Collaborating with data scientists and analysts to understand their data requirements,Providing clean and well-organized data for analysis and reporting.</p></p>
+
+           </section>
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">YouTube</h2>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Why Data Analyst?</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/_gP-DH0iZLw?si=tGKY4sUhT0nnKucy" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Certificate</h2>
+            <a href="https://www.coursera.org/professional-certificates/google-data-analytics/" target="_blank">
+                <img class="zoomable-image" src="static/DA badge.png" alt="Certificate Thumbnail">
+            </a>
+            <p>The Google Data Analyst certificate.</p>
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Roadmap for Data Analyst</h2>
+            <a href="static/DataAnalystRoadmap.png" target="_blank">
+                <img class="zoomable-image" src="static/DataAnalystRoadmap.png" alt="Certificate Thumbnail">
+            </a>
+            <p style="font-size: 16px;">Follow this roadmap to become a successful Data Analyst.</p>
+        </div>
+    </div>
+<!-- BOOKS -->
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Data Analyst Books</h2>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Books</h2>
+            
+            <a href="https://amzn.eu/d/5wgFpRY" target="_blank">
+                <img class="zoomable-image" src="static/DA.jpeg" alt="Certificate Thumbnail">
+            </a>
+            <p>Fundamentals Of Data Analyst</p>
+        </div>
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Books</h2>
+            <a href="https://amzn.eu/d/2Pq8PiY" target="_blank">
+                <img class="zoomable-image" src="static/DA book2.png" alt="Certificate Thumbnail">
+            </a>
+            <p>Spark: The Definitive Guide - Big Data Processing</p>
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Books</h2>
+            <a href="https://amzn.eu/d/emXNKds" target="_blank">
+                <img class="zoomable-image" src="static/DA book3.jpeg" alt="Certificate Thumbnail">
+            </a>
+            <p>Designing Data-Intensive Applications: The Big Ideas Behind Reliable</p>
+        </div>
+    </div>
+
+<!-- PROJECTS -->
+    
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Real Projects</h2>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Project</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/KgCgpCIOkIs?si=_NrJ_MbPRZQS4EDZ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Certificate</h2>
+            <a href="https://www.coursera.org/professional-certificates/ibm-data-analyst" target="_blank">
+                <img class="zoomable-image" src="static/IBM DA.png" alt="Certificate Thumbnail">
+            </a>
+            <p>IBM Data Analyst Certificate</p>
+        </div>
+        
+        <div class="modal fade" id="certificatesModal" tabindex="-1" role="dialog" aria-labelledby="certificatesModalLabel" aria-hidden="true">
+            <!-- ... Modal content for certificates ... -->
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Project</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/nl9eZl1IOKI?si=OoUm6QDMeYXGJknm" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <!-- TOOLS -->
+
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Tools</h2>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Tools</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/JJdD_oM1CmQ?si=RSWaL5F9x5PGdCT_" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Skills</h2>
+            <a href="static/DA.png" target="_blank">
+                <img class="zoomable-image" src="static/DA.png" alt="Certificate Thumbnail">
+            </a>
+        </div>
+        
+        <div class="modal fade" id="certificatesModal" tabindex="-1" role="dialog" aria-labelledby="certificatesModalLabel" aria-hidden="true">
+            <!-- ... Modal content for certificates ... -->
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Tools</h2>
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/eG-EmWX6El4?si=Xv2k33OxtkWEx8Ex" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <!-- MY PROJECTS -->
+    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">My Projects</h2>
+    <p style="font-weight: bolder;" ><b>Exploraty Data Analysis</b></p>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Project 1</h2>
+            <p style="font-weight: bold; color: #333;"><b>Netflix EDA</b></p>
+            <a href="https://github.com/soham7998/Data-Analysis-Projects/blob/main/Netflix%20EDA/Netflix%20Data%20Analysis.ipynb" target="_blank">
+                <img src="./static/netflix EDA.jpeg" alt="Project 1" width="460" height="250">
+                </a>
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Project 2</h2>
+            <p style="font-weight: bold; color: #333;"><b> DS Salary EDA</b></p>
+            <a href="https://github.com/soham7998/Data-Analysis-Projects/blob/main/DS%20Salary%20EDA/Data_Science_Salary-EDA.ipynb" target="_blank">
+                <img src="./static/ds.jpg" alt="Project 1" width="460" height="250">
+                </a>
+        </div>
+    </div>
+
+    <footer>
+        <div style="float: left; text-align: left; width: 33%;">
+            <p style="display: inline-block;font-size: 18px;">"D3Hub?"
+                <p  style="color: white;font-size: 18px;">"All about the data world"</p>
+        </div>
+        <div style="display: inline-block; text-align: center; width: 33%;">
+            <p>Made by Soham Shah</p>
+            <p style="color: white; font-size: 18px;">&copy; 2024 D3Hub. All rights reserved.</p>
+            <p style="display: inline-block; font-size: 18px;">
+                <a href="/" style="text-decoration: none; color: white;">Home</a> |
+                <a href="/DA" style="text-decoration: none; color: white;">Data Analyst</a> |
+                <a href="/DE" style="text-decoration: none; color: white;">Data Engineer</a> | 
+                <a href="/DS" style="text-decoration: none; color: white;">Data Science</a>. 
+            </p>
+        </div>
+        <div style="float: right; text-align: right; width: 33%;">
+            <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;" target="_blank">Learn more</a>
+            <p style="font-size:17px;">Connect With Me
+            <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
+            <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |
+            <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> |
+            <a href="https://twitter.com/sohamshahh" target="_blank" style="color: white; text-decoration: none;">Twitter</a></p>    
+        </div>
+        <div style="clear: both;"></div>
+    </footer>
+</body>
+</html>

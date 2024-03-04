@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from pymongo import MongoClient
 
 app = Flask(__name__)
+app.secret_key = None
 
 @app.route('/database', methods=['POST'])
 def button_click():

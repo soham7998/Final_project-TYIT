@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from pymongo import MongoClient
+import secrets
 
 app = Flask(__name__)
-app.secret_key = None
+app.secret_key = secrets.token_hex(16) 
 
 @app.route('/database', methods=['POST'])
 def button_click():

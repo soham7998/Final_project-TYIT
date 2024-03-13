@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Engineer - D3Hub</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./static/react.png"  sizes="34x34" />
     <style>
@@ -116,11 +117,12 @@ body {
         background-color: #333;
     }
 
-        .page-content {
+    .page-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 90vh; /* Adjust the height as needed */
+            height: max-content;/* Adjust the height as needed */
+            overflow-x:scroll;
         }
 
         .column {
@@ -169,6 +171,16 @@ body {
         text-decoration: none;
         color: whitesmoke; /* This makes the link color the same as its parent element's color */
     }
+    .animate__animated.fadeInRightBig {
+  --animate-duration: 2s;
+}
+
+
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 1.9s;
+}
 
     </style>
 </head>
@@ -193,21 +205,21 @@ body {
         <h1>Data Engineer - D3Hub</h1>
     </header>
     <div class="role-description">
-        <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Role of a Data Engineer</h2>
-        <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 18px;"><b>A Data Engineer plays a crucial role in the field of data management, ensuring that organizations can effectively collect, store, process, and analyze large volumes of data.
-             The role of a Data Engineer involves various responsibilities related to the design, construction, and maintenance of the systems and architectures that enable efficient data processing</b>
-           <section>
-           <p><b>Data Integration:</b>Integrating data from different sources, ensuring consistency and reliability,Building and maintaining ETL (Extract, Transform, Load) processes for data movement.</p>
-           <p><b>Data Modeling:</b>Developing data models and schemas to represent the structure of the data,Optimizing data models for performance and storage efficiency..</p>
-            <p><b>Data Processing and Transformation:</b>Implementing data processing solutions for real-time and batch processing,Transforming raw data into a usable format for analysis and reporting.</p>
-            <p><b>Infrastructure Management:</b> Managing and optimizing the infrastructure for data storage and processing,Working with cloud platforms and big data technologies.</p>
-            <p><b>Performance Optimization:</b>Monitoring and optimizing the performance of databases and data processing systems.</p>
-            <p><b>Continuous Learning:</b>Staying updated with the latest technologies and trends in data engineering,Exploring new tools and frameworks to improve data engineering processes.</p>
-            <p><b>Collaboration with Data Scientists and Analysts:</b>Collaborating with data scientists and analysts to understand their data requirements,
+        <h2 class="animate__animated animate__fadeInRightBig" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Role of a Data Engineer</h2>
+        <p class="animate__animated animate__fadeInUp " style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 18px;"><i><b>A Data Engineer plays a crucial role in the field of data management, ensuring that organizations can effectively collect, store, process, and analyze large volumes of data.
+             The role of a Data Engineer involves various responsibilities related to the design, construction, and maintenance of the systems and architectures that enable efficient data processing</b></i>
+           <section class="animate__animated animate__fadeInRightBig" >
+           <p><b>Data Integration:  </b>Integrating data from different sources, ensuring consistency and reliability,Building and maintaining ETL (Extract, Transform, Load) processes for data movement.</p>
+           <p><b>Data Modeling: </b>Developing data models and schemas to represent the structure of the data,Optimizing data models for performance and storage efficiency..</p>
+            <p><b>Data Processing and Transformation: </b>Implementing data processing solutions for real-time and batch processing,Transforming raw data into a usable format for analysis and reporting.</p>
+            <p><b>Infrastructure Management: </b> Managing and optimizing the infrastructure for data storage and processing,Working with cloud platforms and big data technologies.</p>
+            <p><b>Performance Optimization: </b>Monitoring and optimizing the performance of databases and data processing systems.</p>
+            <p><b>Continuous Learning: </b>Staying updated with the latest technologies and trends in data engineering,Exploring new tools and frameworks to improve data engineering processes.</p>
+            <p><b>Collaboration with Data Scientists and Analysts: </b>Collaborating with data scientists and analysts to understand their data requirements,
                 Providing clean and well-organized data for analysis and reporting.</p></p>
-            <p><b>Data Engineering Tools:</b>Collaborating with data scientists and analysts to understand their data requirements,Providing clean and well-organized data for analysis and reporting.</p></p>
+            <p><b>Data Engineering Tools: </b>Collaborating with data scientists and analysts to understand their data requirements,Providing clean and well-organized data for analysis and reporting.</p></p>
            </section>
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">YouTube</h2>
+    <h2 class="animate__animated animate__fadeInRightBig"  style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">YouTube</h2>
     <div class="page-content">
         <div class="column">
             <h2 style="font-size: 20px;">Why Data Engineering?</h2>
@@ -227,7 +239,7 @@ body {
         </div>
     </div>
 
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Data Engineering Books</h2>
+    <h2 class="animate__animated animate__fadeInRightBig" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Data Engineering Books</h2>
     <div class="page-content">
         <div class="column">
             <h2 style="font-size: 20px;">Books</h2>
@@ -254,7 +266,7 @@ body {
         </div>
     </div>
 <!-- PROJECTS -->
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Real Projects</h2>
+    <h2 class="animate__animated animate__fadeInRightBig"  style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Real Projects</h2>
     <div class="page-content">
         <div class="column">
             <h2 style="font-size: 20px;">Project</h2>
@@ -283,7 +295,7 @@ body {
 
      <!-- TOOLS -->
 
-     <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Tools</h2>
+     <h2 class="animate__animated animate__fadeInRightBig" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Tools</h2>
      <div class="page-content">
          <div class="column">
              <h2 style="font-size: 20px;">Tools</h2>
@@ -306,7 +318,7 @@ body {
             </div>
      </div>
       <!-- MY PROJECTS -->
-      <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">My Projects</h2>
+      <h2 class="animate__animated animate__fadeInRightBig" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">My Projects</h2>
       <p style="font-weight: bolder;" ><b>Data Engineering Projects</b></p>
       <div class="page-content">
           <div class="column">

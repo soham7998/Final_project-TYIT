@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Science - D3Hub</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./static/react.png"  sizes="34x34"/>
     <style>
@@ -144,13 +145,12 @@ body {
         margin-bottom: 10px;
     }
 }
-      .page-content {
+.page-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 80vh; /* Adjust the height as needed */
-            overflow-x: scroll;
-            border: 1px solid #ccc; /* Add a border for visualization */
+            height: max-content;/* Adjust the height as needed */
+            overflow-x:scroll;
         }
 
 
@@ -200,6 +200,16 @@ body {
         text-decoration: none;
         color: whitesmoke; /* This makes the link color the same as its parent element's color */
     }
+    .animate__animated.backInUp{
+     --animate-duration: 3s;
+}
+
+
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 800ms;
+  --animate-delay:1.2s;
+}
 
     </style>
 </head>
@@ -224,21 +234,21 @@ body {
         <h1>Data Science - D3Hub</h1>
     </header>
     <div class="role-description">
-        <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Role of a Data Science</h2>
-        <p style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 18px;"><b>A Data Scientist’s roles and responsibilities include extracting data from multiple sources, using machine learning tools to organize data, process, clean, and validate the data, analyze the data for information and patterns, develop prediction systems,
-            present the data in a clear manner, and propose solutions and strategies.</b>
-             <section>
-                <p><b>Data Collection:</b> Gathering relevant data from various sources, which can include databases, APIs, sensors, logs, and more.</p>
-                <p><b>Data Cleaning & Preprocessing:</b> Cleaning and organizing the data to remove errors, handle missing values, and prepare it for analysis.</p>
-                 <p><b>Exploratory Data Analysis(EDA):</b> Understanding the characteristics and patterns in the data through statistical and visual methods.</p>
-                 <p><b>Feature Engineering:</b>Selecting, transforming, or creating new features that enhance the performance of machine learning models.</p>
-                 <p><b>Machine Learning:</b> Applying algorithms and statistical models to the data to develop predictive models or uncover patterns and insights.</p>
-                 <p><b>Data Visualization:</b> Representing data through charts, graphs, and other visualizations to communicate findings effectively.</p>
-                 <p><b>Model Deployement:</b> Implementing models into production systems for real-world use.</p></p>
-                 <p><b>Big Data Technologies:</b>Dealing with large-scale datasets using technologies like Hadoop and Spark.</p></p>
-                 <p><b>Domain Knowledge:</b>Domain knowledge is crucial for interpreting results in context and making data-driven decisions that align with organizational goals.</p>
+        <h2 class="animate__animated animate__backInUp" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Role of a Data Science</h2>
+        <p class="animate__animated animate__backInUp"  style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 18px;"><b><i>A Data Scientist’s roles and responsibilities include extracting data from multiple sources, using machine learning tools to organize data, process, clean, and validate the data, analyze the data for information and patterns, develop prediction systems,
+            present the data in a clear manner, and propose solutions and strategies.</b></i>
+             <section class="animate__animated animate__backInUp" >
+                <p><b>Data Collection: </b> Gathering relevant data from various sources, which can include databases, APIs, sensors, logs, and more.</p>
+                <p><b>Data Cleaning & Preprocessing: </b> Cleaning and organizing the data to remove errors, handle missing values, and prepare it for analysis.</p>
+                 <p><b>Exploratory Data Analysis(EDA): </b> Understanding the characteristics and patterns in the data through statistical and visual methods.</p>
+                 <p><b>Feature Engineering: </b>Selecting, transforming, or creating new features that enhance the performance of machine learning models.</p>
+                 <p><b>Machine Learning: </b> Applying algorithms and statistical models to the data to develop predictive models or uncover patterns and insights.</p>
+                 <p><b>Data Visualization: </b> Representing data through charts, graphs, and other visualizations to communicate findings effectively.</p>
+                 <p><b>Model Deployement: </b> Implementing models into production systems for real-world use.</p></p>
+                 <p><b>Big Data Technologies: </b>Dealing with large-scale datasets using technologies like Hadoop and Spark.</p></p>
+                 <p><b>Domain Knowledge: </b>Domain knowledge is crucial for interpreting results in context and making data-driven decisions that align with organizational goals.</p>
                 </section>
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">YouTube</h2>
+    <h2 class="animate__animated animate__backInLeft"style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">YouTube</h2>
     <div class="page-content">
         <div class="column">
             <h2 style="font-size: 20px;">Why Data Science?</h2>
@@ -258,7 +268,7 @@ body {
         </div>
     </div>
 <!-- Books -->
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Data Science Books</h2>
+    <h2 class="animate__animated animate__backInLeft" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Data Science Books</h2>
     <div class="page-content">
         <div class="column">
             <h2 style="font-size: 20px;">Books</h2>
@@ -285,7 +295,7 @@ body {
         </div>
     </div>
 <!-- PROJECTS -->
-    <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Real Projects</h2>
+    <h2 class="animate__animated animate__backInLeft" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Real Projects</h2>
     <div class="page-content">
         <div class="column">
             <h2 style="font-size: 20px;">Project</h2>
@@ -314,7 +324,7 @@ body {
 
      <!-- TOOLS -->
 
-     <h2 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Tools</h2>
+     <h2 class="animate__animated animate__backInLeft" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Tools</h2>
      <div class="page-content">
          <div class="column">
              <h2 style="font-size: 20px;">Tools</h2>
@@ -336,31 +346,30 @@ body {
              <iframe width="460" height="250" src="https://www.youtube.com/embed/-ETQ97mXXF0?si=lpLxeXbMnPVe1tQK" frameborder="0" allowfullscreen></iframe>
             </div>
      </div>
-<footer style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
-    <div style="float: left; text-align: left; width: 33%;">
-        <p style="display: inline-block;font-size: 18px;">"D3Hub?"
-            <p  style="color: white;font-size: 18px;">"All about the data world"</p>
-    </div>
-    <div style="display: inline-block; text-align: center;">
-        <p>Made by Soham Shah</p>
-        <p style="color: white; font-size: 18px;">&copy; 2024 D3Hub. All rights reserved.</p>
-        <p style="display: inline-block; font-size: 18px;">
-            <a href="/" style="text-decoration: none; color: white;">Home</a> |
-            <a href="/DA" style="text-decoration: none; color: white;">Data Analyst</a> |
-            <a href="/DE" style="text-decoration: none; color: white;">Data Engineer</a> |
-            <a href="/DS" style="text-decoration: none; color: white;">Data Science</a>.
-        </p>
-    </div>
-    <div style="float: right; text-align: right;">
-        <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;" target="_blank">Learn more</a>
-        <p style="font-size: 17px;">Connect With Me
-        <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
-        <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |
-        <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> |
-        <a href="https://twitter.com/sohamshahh/" target="_blank" style="color: white; text-decoration: none;">Twitter</a></p>
-
-    </div>
-    <div style="clear: both;"></div>
-</footer>
+     <footer>
+        <div style="float: left; text-align: left; width: 33%;">
+            <p style="display: inline-block;font-size: 18px;">"D3Hub?"
+                <p  style="color: white;font-size: 18px;">"All about the data world"</p>
+        </div>
+        <div style="display: inline-block; text-align: center; width: 33%;">
+            <p>Made by Soham Shah</p>
+            <p style="color: white; font-size: 18px;">&copy; 2024 D3Hub. All rights reserved.</p>
+            <p style="display: inline-block; font-size: 18px;">
+                <a href="/" style="text-decoration: none; color: white;">Home</a> |
+                <a href="/DA" style="text-decoration: none; color: white;">Data Analyst</a> |
+                <a href="/DE" style="text-decoration: none; color: white;">Data Engineer</a> | 
+                <a href="/DS" style="text-decoration: none; color: white;">Data Science</a>. 
+            </p>
+        </div>
+        <div style="float: right; text-align: right; width: 33%;">
+            <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;" target="_blank">Learn more</a>
+            <p style="font-size:17px;">Connect With Me
+            <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
+            <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |
+            <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> |
+            <a href="https://twitter.com/sohamshahh" target="_blank" style="color: white; text-decoration: none;">Twitter</a></p>    
+        </div>
+        <div style="clear: both;"></div>
+    </footer>
 </body>
 </html>

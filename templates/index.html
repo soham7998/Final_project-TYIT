@@ -6,7 +6,7 @@
     <title>D3Hub - Explore Data World</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="icon" href="static/react.png" sizes="34x34" />
  <style>
          /* Add the following styles for mobile responsiveness */
@@ -173,17 +173,17 @@ footer {
 
 
 #da a {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: #000;
 }
 
 #de a {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: #000;
 }
 
 #ds a {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: #000;
 }
 
@@ -193,11 +193,11 @@ footer {
     color: green; /* Change to your desired hover color */
 }
 
-        .page-content {
+.page-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 90vh; /* Adjust the height as needed */
+            height:max-content; /* Adjust the height as needed */
             overflow-x:scroll;
         }
 
@@ -272,6 +272,7 @@ a {
             font-size: 16px;
             border-radius: 5px;
         }
+        
 
   @keyframes slideInFromBottom {
             0% {
@@ -287,6 +288,16 @@ a {
             animation-timing-function: ease-out; /* Adjust the timing function as needed */
             animation-fill-mode: both;
         }
+        .animate__animated.animate__fadeInUp {
+  --animate-duration: 4s;
+}
+
+
+/* This changes all the animations globally */
+:root {
+  /* --animate-duration: 800ms; */
+  --animate-delay: 1.8s;
+}
 </style>
 </head>
 <body>
@@ -335,7 +346,7 @@ a {
         <img id="changing-image" src="./static/Compare.jpg" alt="Changing Image">
     </div>
 
-   <section id="home" class="animate-on-scroll">
+   <section id="home"  class="animate__animated animate__fadeInUp">
         <h2 style="font-size: 30px;font-family: 'Times New Roman', Times, serif;">Welcome there📊</h2>
         <p style="font-size: 24px;font-family: 'Times New Roman', Times, serif;">D3Hub is your ultimate destination for everything related to Data Analyst, Data Engineer, and Data Science. Whether you're exploring tutorials, seeking certificates, or following a roadmap to success, we've got you covered on your journey in the world of data. Welcome to a platform designed to help you thrive in the exciting fields of data analysis, engineering, and science!</p>
     </section>
@@ -362,8 +373,8 @@ a {
 
     <section id="da">
         <a href="/DA">
-            <h2>Data Analyst,Who is Data Analyst?</h2><p>Explore More.</p></a>
-        <p>A Data analyst is a professional who gathers, organizes, and analyzes information from various sources to help an organization achieve business goals.</p>
+            <h2 class="animate__animated animate__fadeInRight">Data Analyst,Who is Data Analyst?</h2><p>Explore More.</p></a>
+        <p class="animate__animated animate__fadeInUp" >A Data analyst is a professional who gathers, organizes, and analyzes information from various sources to help an organization achieve business goals.</p>
     <div class="page-content">
         <div class="column">
             <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
@@ -385,8 +396,8 @@ a {
 </div>
     <section id="de">
         <a href="/DE">
-        <h2>Data Engineer</h2><p>Explore More</p></a>
-        <p>Data Engineers work in various settings to build systems that collect, manage, and convert raw data into usable information for data scientists and business analysts to interpret.
+        <h2 class="animate__animated animate__fadeInRight">Data Engineer</h2><p>Explore More</p></a>
+        <p class="animate__animated animate__fadeInUp">Data Engineers work in various settings to build systems that collect, manage, and convert raw data into usable information for data scientists and business analysts to interpret.
             Their ultimate goal is to make data accessible so that organisations can use it to evaluate and optimise their performance.</p>
     <div class="page-content">
         <div class="column">
@@ -407,26 +418,27 @@ a {
 </div>
      </section>
 
-     <section id="group-chats">
-        <h2>Group Discusssion - Want to know more? Do signup!</h2>
-    </section>
-
-    <!-- Add the Signup Overlay below -->
-
-    <div class="thumbnail-container">
-        <img class="thumbnail" src="./static/disucss3.jpg" alt="Thumbnail Image" width="70%">
+     <div class="thumbnail-container">
+        <img class="thumbnail" src="./static/disucss3.jpg" alt="Thumbnail Image" width="60%">
         <div class="overlay">
-            <h2>Welcome to Group Discusssion's</h2>
+            <h2 class="animate__animated animate__fadeInRight">Welcome to Group Discusssion's</h2>
             <div class="signup-message">
                 Sign up to join our community and access Discussion- Forum!
             </div>
+            <div class="discord-button">
+                <p>Join our Discord server:</p>
+                <a href="https://discord.com/invite/caxbmM3v" target="_blank">
+                    <button style="background-color: #7289DA; color: white;">Join Discord</button></a>
             <button class="signup-button" onclick="location.href='/signup'">Sign Up</button>
         </div>
+        </div>
     </div>
+</div>
+</div>
     <section id="ds">
         <a href ="/DS">
-        <h2>Data Science</h2><p>Explore More</p></a>
-        <p>Data Science is a multidisciplinary field that uses a combination of principles and practices to analyze large amounts of data. It combines principles and practices from the fields of: Mathematics, Statistics, Artificial intelligence, Computer engineering.</p>
+        <h2 class="animate__animated animate__fadeInRight">Data Science</h2><p>Explore More</p></a>
+        <p class="animate__animated animate__fadeInUp">Data Science is a multidisciplinary field that uses a combination of principles and practices to analyze large amounts of data. It combines principles and practices from the fields of: Mathematics, Statistics, Artificial intelligence, Computer engineering.</p>
         <div class="page-content">
             <div class="column">
                 <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
@@ -445,29 +457,28 @@ a {
             </div>
     </div>
 </section>
-<footer style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
+<footer>
     <div style="float: left; text-align: left; width: 33%;">
         <p style="display: inline-block;font-size: 18px;">"D3Hub?"
             <p  style="color: white;font-size: 18px;">"All about the data world"</p>
     </div>
-    <div style="display: inline-block; text-align: center;">
+    <div style="display: inline-block; text-align: center; width: 33%;">
         <p>Made by Soham Shah</p>
         <p style="color: white; font-size: 18px;">&copy; 2024 D3Hub. All rights reserved.</p>
         <p style="display: inline-block; font-size: 18px;">
             <a href="/" style="text-decoration: none; color: white;">Home</a> |
             <a href="/DA" style="text-decoration: none; color: white;">Data Analyst</a> |
-            <a href="/DE" style="text-decoration: none; color: white;">Data Engineer</a> |
-            <a href="/DS" style="text-decoration: none; color: white;">Data Science</a>.
+            <a href="/DE" style="text-decoration: none; color: white;">Data Engineer</a> | 
+            <a href="/DS" style="text-decoration: none; color: white;">Data Science</a>. 
         </p>
     </div>
-    <footer style="bottom: 0; right: 0; text-align: right; padding: 20px; font-size: 16px; width:max-content;">
+    <div style="float: right; text-align: right; width: 33%;">
         <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;" target="_blank">Learn more</a>
-        <p style="font-size: 17px;">Connect With Me
-        <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none; text-align: right;">Github</a> |
-        <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none; text-align: right;">LinkedIn</a> |
-        <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;text-align: right;">Instagram</a> |
-        <a href="https://twitter.com/sohamshahh/" target="_blank" style="color: white; text-decoration: none;text-align: right;">Twitter</a></p>
-
+        <p style="font-size:17px;">Connect With Me
+        <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
+        <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |
+        <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> |
+        <a href="https://twitter.com/sohamshahh" target="_blank" style="color: white; text-decoration: none;">Twitter</a></p>    
     </div>
     <div style="clear: both;"></div>
 </footer>

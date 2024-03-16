@@ -30,7 +30,6 @@
         .about-img {
             flex: 1;
             margin-right: 20px;
-            margin-bottom: 20px; /* Added margin for spacing */
             overflow: hidden;
         }
 
@@ -72,17 +71,16 @@
             background-color: #333;
         }
         
-        @media (max-width: 768px) {
-            .about-section {
-                flex-direction: column;
-            }
+        @media (max-width: 700px) {
+        .navbar-left, .navbar-right {
+        flex-direction: column;
+        align-items: center;
+    }
+} 
 
-            .about-img,
-            .about-details {
-                flex: 1;
-                margin: 0;
-            }
-        }
+    .navbar a, .navbar button {
+        margin: 10px 0;
+    }
 
         .navbar {
             display: flex;
@@ -92,7 +90,6 @@
             padding: 20px;
             text-align: center;
             width: 100%;
-            color: white;
         }
 
         .navbar a {
@@ -112,9 +109,9 @@
             margin: 0 20px;
         }
         .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+        background-color: #ddd;
+        color: black;
+    }
 
         .navbar-center {
             flex: 1;
@@ -136,6 +133,10 @@
             font-size: 16px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
+
+        section {
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
@@ -156,99 +157,53 @@
 
     <div class="container">
         <div class="about-section">
+            <div class="about-img">
+                <img src="./static/soham0.jpg" alt="Image">
+            </div>
             <div class="about-details">
                 <h2>About Me</h2>
                 <p style="font-size:22px;">
-                    <strong>Introduction:</strong>
-                    My Self Soham Shah, an  Enthusiastic Data enthusiast. Through various projects, I've gained hands-on Experience with diverse datasets and tools in the realm of Data Analytics.
-                 </p>
- 
-                    <strong>Educational Background:</strong>
-                    I'm a third-year IT student eager to apply my academic knowledge in real-world settings. Actively seeking opportunities in data analysis, I aim to bring my solid foundation in information technology to practical projects.
-                 </p>
-                    <strong>Professional Aspirations:</strong>
-                    Beyond academics, I'm keen on exploring machine learning to derive meaningful insights. My commitment to continuous learning aligns with staying updated on the latest advancements in the field.
-                 </p>
-                    <strong>Certifications:</strong>
-                    I've fortified my academic background with certifications in Google Data Analysis, AWS Fundamentals, Big Data - Machine Learning on GCP, and Microsoft Data Engineering. These certifications showcase my dedication to mastering industry-relevant tools.
-                 </p>
-                    <strong>Continuous Growth:</strong>
-                    In a phase of continuous growth, I actively enhance my skills. Staying current with industry trends and broadening my knowledge in data analytics and machine learning allows me to bring innovative solutions to the table.
-                 </p>
-                 
-                    <strong>Projects:</strong>
-                 </p>
-                    1. <strong>Netflix EDA:</strong>
-                       Delved into Netflix data, unveiling insights into its vast content. Explored genres, viewer preferences, and content trends to understand the platform's dynamics.
-                     </p>
-                    2. <strong>YouTube Data Engineering:</strong>
-                       Spearheaded the development of a data pipeline for YouTube using AWS. Implemented Glue Crawler, Athena, and QuickSight, optimizing Extract, Transform, Load (ETL) processes and providing a substantial competitive advantage.
-                     </p>
-                    3. <strong>Power BI Sales Dashboard:</strong>
-                       Created an interactive Power BI Sales Dashboard for Global Super Store. The dashboard provides a user-friendly interface for analyzing sales trends and making informed business decisions.
-                     </p>
-                    4. <strong>Data Science EDA:</strong>
-                       Conducted Exploratory Data Analysis, unraveling patterns and trends within a dataset. Utilized statistical methods to extract meaningful insights and enhance decision-making.
-                     </p>
-                    5. <strong>My Portfolio:</strong>
-                       Developed a personal portfolio showcasing projects. The portfolio, built with Python and Flask, serves as a visual representation of my works, including an early project accessible <a href="https://soham2003.pythonanywhere.com/" target="_blank">Here Portfolio</a>.</li>
-                     </p>
-                    6. <strong>GitHub Repository:</strong>
-                       Centralized repository on GitHub housing diverse projects. Explore my <a href="https://github.com/soham7998 " target="_blank">GitHub repository</a> for a comprehensive view of code repositories and detailed documentation.
-                 </p>
-             </p>
-                 <strong>Conclusion:</strong>
-                    Excited about contributing skills and passion to impactful projects, I'm open to collaborations, discussions, and new opportunities aligned with my aspirations in the dynamic field of data analytics and machine learning. Looking forward to engaging with like-minded professionals and making meaningful contributions to the world of data science.
-                 </p>
-                 <p style="font-size:22px;">
-                    <strong>Introduction:</strong>
-                    My Self Soham Shah, an  Enthusiastic Data enthusiast. Through various projects, I've gained hands-on Experience with diverse datasets and tools in the realm of Data Analytics.
-                 </p>
- 
-                    <strong>Educational Background:</strong>
-                    I'm a third-year IT student eager to apply my academic knowledge in real-world settings. Actively seeking opportunities in data analysis, I aim to bring my solid foundation in information technology to practical projects.
-                 </p>
-                    <strong>Professional Aspirations:</strong>
-                    Beyond academics, I'm keen on exploring machine learning to derive meaningful insights. My commitment to continuous learning aligns with staying updated on the latest advancements in the field.
-                 </p>
-                    <strong>Certifications:</strong>
-                    I've fortified my academic background with certifications in Google Data Analysis, AWS Fundamentals, Big Data - Machine Learning on GCP, and Microsoft Data Engineering. These certifications showcase my dedication to mastering industry-relevant tools.
-                 </p>
-                    <strong>Continuous Growth:</strong>
-                    In a phase of continuous growth, I actively enhance my skills. Staying current with industry trends and broadening my knowledge in data analytics and machine learning allows me to bring innovative solutions to the table.
-                 </p>
-                 
-                    <strong>Projects:</strong>
-                 </p>
-                    1. <strong>Netflix EDA:</strong>
-                       Delved into Netflix data, unveiling insights into its vast content. Explored genres, viewer preferences, and content trends to understand the platform's dynamics.
-                     </p>
-                    2. <strong>YouTube Data Engineering:</strong>
-                       Spearheaded the development of a data pipeline for YouTube using AWS. Implemented Glue Crawler, Athena, and QuickSight, optimizing Extract, Transform, Load (ETL) processes and providing a substantial competitive advantage.
-                     </p>
-                    3. <strong>Power BI Sales Dashboard:</strong>
-                       Created an interactive Power BI Sales Dashboard for Global Super Store. The dashboard provides a user-friendly interface for analyzing sales trends and making informed business decisions.
-                     </p>
-                    4. <strong>Data Science EDA:</strong>
-                       Conducted Exploratory Data Analysis, unraveling patterns and trends within a dataset. Utilized statistical methods to extract meaningful insights and enhance decision-making.
-                     </p>
-                    5. <strong>My Portfolio:</strong>
-                       Developed a personal portfolio showcasing projects. The portfolio, built with Python and Flask, serves as a visual representation of my works, including an early project accessible <a href="https://soham2003.pythonanywhere.com/" target="_blank">Here Portfolio</a>.</li>
-                     </p>
-                    6. <strong>GitHub Repository:</strong>
-                       Centralized repository on GitHub housing diverse projects. Explore my <a href="https://github.com/soham7998 " target="_blank">GitHub repository</a> for a comprehensive view of code repositories and detailed documentation.
-                 </p>
-             </p>
-                 <strong>Conclusion:</strong>
-                    Excited about contributing skills and passion to impactful projects, I'm open to collaborations, discussions, and new opportunities aligned with my aspirations in the dynamic field of data analytics and machine learning. Looking forward to engaging with like-minded professionals and making meaningful contributions to the world of data science.
-                 </p>
-             </div>
-         </div>
-     </div>
+                   <strong>Introduction:</strong>
+                   My Self Soham Shah, an  Enthusiastic Data enthusiast. Through various projects, I've gained hands-on Experience with diverse datasets and tools in the realm of Data Analytics.
+                </p>
+
+                   <strong>Educational Background:</strong>
+                   I'm a third-year IT student eager to apply my academic knowledge in real-world settings. Actively seeking opportunities in data analysis, I aim to bring my solid foundation in information technology to practical projects.
+                </p>
+                   <strong>Professional Aspirations:</strong>
+                   Beyond academics, I'm keen on exploring machine learning to derive meaningful insights. My commitment to continuous learning aligns with staying updated on the latest advancements in the field.
+                </p>
+                   <strong>Certifications:</strong>
+                   I've fortified my academic background with certifications in Google Data Analysis, AWS Fundamentals, Big Data - Machine Learning on GCP, and Microsoft Data Engineering. These certifications showcase my dedication to mastering industry-relevant tools.
+                </p>
+                   <strong>Continuous Growth:</strong>
+                   In a phase of continuous growth, I actively enhance my skills. Staying current with industry trends and broadening my knowledge in data analytics and machine learning allows me to bring innovative solutions to the table.
+                </p>
                 
-            </div>
-            <div class="about-img">
-                <img src="./static/soham0.jpg" alt="Image">
+                   <strong>Projects:</strong>
+                </p>
+                   1. <strong>Netflix EDA:</strong>
+                      Delved into Netflix data, unveiling insights into its vast content. Explored genres, viewer preferences, and content trends to understand the platform's dynamics.
+                    </p>
+                   2. <strong>YouTube Data Engineering:</strong>
+                      Spearheaded the development of a data pipeline for YouTube using AWS. Implemented Glue Crawler, Athena, and QuickSight, optimizing Extract, Transform, Load (ETL) processes and providing a substantial competitive advantage.
+                    </p>
+                   3. <strong>Power BI Sales Dashboard:</strong>
+                      Created an interactive Power BI Sales Dashboard for Global Super Store. The dashboard provides a user-friendly interface for analyzing sales trends and making informed business decisions.
+                    </p>
+                   4. <strong>Data Science EDA:</strong>
+                      Conducted Exploratory Data Analysis, unraveling patterns and trends within a dataset. Utilized statistical methods to extract meaningful insights and enhance decision-making.
+                    </p>
+                   5. <strong>My Portfolio:</strong>
+                      Developed a personal portfolio showcasing projects. The portfolio, built with Python and Flask, serves as a visual representation of my works, including an early project accessible <a href="https://soham2003.pythonanywhere.com/" target="_blank">Here Portfolio</a>.</li>
+                    </p>
+                   6. <strong>GitHub Repository:</strong>
+                      Centralized repository on GitHub housing diverse projects. Explore my <a href="https://github.com/soham7998 " target="_blank">GitHub repository</a> for a comprehensive view of code repositories and detailed documentation.
+                </p>
+            </p>
+                <strong>Conclusion:</strong>
+                   Excited about contributing skills and passion to impactful projects, I'm open to collaborations, discussions, and new opportunities aligned with my aspirations in the dynamic field of data analytics and machine learning. Looking forward to engaging with like-minded professionals and making meaningful contributions to the world of data science.
+                </p>
             </div>
         </div>
     </div>

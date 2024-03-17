@@ -9,294 +9,287 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="icon" href="static/react.png" sizes="34x34" />
  <style>
-         /* Add the following styles for mobile responsiveness */
-         @media (max-width: 768px) {
-            .navbar-left, .navbar-right {
-                flex-direction: column;
-                align-items: center;
-            }
+        /* Add the following styles for mobile responsiveness */
+        @media (max-width: 768px) {
+           .navbar-left, .navbar-right {
+               flex-direction: column;
+               align-items: center;
+           }
 
-            .navbar a, .navbar button {
-                margin: 10px 0;
-            }
+           .navbar a, .navbar button {
+               margin: 10px 0;
+           }
 
-            #changing-image {
-                width: 100%;
-            }
+           #changing-image {
+               width: 100%;
+           }
 
-            .page-content {
-                flex-direction: column;
-            }
+           .page-content {
+               flex-direction: column;
+           }
 
-            .column {
-                flex: 0 0 100%;
-            }
-        }
+           .column {
+               flex: 0 0 100%;
+           }
+       }
 
-        body {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            font-size: 22px;
-        }
+       body {
+           font-family: Verdana, Geneva, Tahoma, sans-serif;
+           margin: 0;
+           padding: 0;
+           background-color: #f5f5f5;
+           font-size: 22px;
+       }
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 8px;
-            text-align: center;
-            font-family:'Courier New', Courier, monospace;
-        }
+       header {
+           background-color: #333;
+           color: white;
+           padding: 8px;
+           text-align: center;
+           font-family:'Courier New', Courier, monospace;
+       }
 
-        nav {
-            background-color: #444;
-            padding: 10px;
-            text-align: center;
-        }
+       nav {
+           background-color: #444;
+           padding: 10px;
+           text-align: center;
+       }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-        }
+       nav a {
+           color: white;
+           text-decoration: none;
+           margin: 0 20px;
+           font-size: 18px;
+       }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #444;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-        }
+       .navbar {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           background-color: #444;
+           padding: 20px;
+           text-align: center;
+           width: 100%;
+       }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            border-bottom: 2px solid black;
-            padding-bottom: 5px;
-        }
+       .navbar a {
+           color: white;
+           text-decoration: none;
+           margin: 0 20px;
+           font-size: 18px;
+           font-family: Verdana, Geneva, Tahoma, sans-serif;
+           padding-bottom: 5px;
+       }
 
 
-        .navbar-left {
-            display: flex;
-            align-items: center;
-        }
+       .navbar-left {
+           display: flex;
+           align-items: center;
+       }
 
-        .navbar-left a {
-            margin: 0 10px;
-        }
-        .navbar a:hover {
-        background-color: #ddd;
-        color: black;
-    }
+       .navbar-left a {
+           margin: 0 10px;
+       }
 
-        .navbar-center {
-            flex: 1; /* Allow the center to take as much space as it needs */
-            text-align: center;
-        }
+       .navbar-center {
+           flex: 1; /* Allow the center to take as much space as it needs */
+           text-align: center;
+       }
 
-        .navbar-right {
-            display: flexbox;
-            align-items: center;
-            font-size: 18px;
-        }
+       .navbar-right {
+           display: flex;
+           align-items: center;
+           font-size: 18px;
+       }
 
-        .navbar-right button {
-            margin-left: 0px;
-            padding: 10px 10px;
-            background-color: rgb(243, 178, 103);
-            color: white;
-            border: none;
-            cursor: pointer;
-            /* font-family:Verdana, Geneva, Tahoma, sans-serif; */
-        }
+       .navbar-right button {
+           margin-left: 0px;
+           padding: 10px 10px;
+           background-color: rgb(243, 178, 103);
+           color: white;
+           cursor: pointer;
+           /* font-family:Verdana, Geneva, Tahoma, sans-serif; */
+       }
 
-        section {
-            padding: 20px;
-        }
+       section {
+           padding: 20px;
+       }
 
-        #image-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
+       #image-row {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           padding: 10px;
+       }
 
-        #changing-image {
-            width: 50%;
-            height: 40%;
-            animation: changeImage 4s infinite;
-        }
+       #changing-image {
+           width: 50%;
+           height: 40%;
+           animation: changeImage 4s infinite;
+       }
 
-        @keyframes changeImage {
-            0%, 25% {
-                opacity: 1;
-            }
-            50%, 75% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
+       @keyframes changeImage {
+           0%, 25% {
+               opacity: 1;
+           }
+           50%, 75% {
+               opacity: 0;
+           }
+           100% {
+               opacity: 1;
+           }
+       }
 
 footer {
-    margin-top: auto;
-    font-size: 16px;
-    color: #777;
-    width: 100%;
-    text-align: center;
-    padding: 16px;
-    background-color: #333;
+   margin-top: auto;
+   font-size: 16px;
+   color: #777;
+   width: 100%;
+   text-align: center;
+   padding: 16px;
+   background-color: #333;
 }
 
 @media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-    }
+   .footer-content {
+       flex-direction: column;
+       align-items: center;
+   }
 
-    .footer-left, .footer-center {
-        margin-bottom: 10px;
-    }
+   .footer-left, .footer-center {
+       margin-bottom: 10px;
+   }
 }
 
 .footer-right {
-    text-align: center;
+   text-align: center;
 }
 
 
 #da a {
-    /* text-decoration: none; */
-    color: #000;
+   /* text-decoration: none; */
+   color: #000;
 }
 
 #de a {
-    /* text-decoration: none; */
-    color: #000;
+   /* text-decoration: none; */
+   color: #000;
 }
 
 #ds a {
-    /* text-decoration: none; */
-    color: #000;
+   /* text-decoration: none; */
+   color: #000;
 }
 
 #da a:hover,
 #de a:hover,
 #ds a:hover {
-    color: green; /* Change to your desired hover color */
+   color: green; /* Change to your desired hover color */
 }
 
 .page-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height:max-content; /* Adjust the height as needed */
-            overflow-x:scroll;
-        }
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           height:max-content; /* Adjust the height as needed */
+           overflow-x:scroll;
+       }
 
-        .column {
-            flex: 0 0 30%; /* Each column takes 30% of the container width */
-            padding: 20px;
-            margin: 10px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-    #da::after, #de::after,#de::after {
-    content: '';
-    display: block;
-    border-top: 2px solid black;
-    margin: 20px 0; /* Adjust the margin as needed */
+       .column {
+           flex: 0 0 30%; /* Each column takes 30% of the container width */
+           padding: 20px;
+           margin: 10px;
+           background-color: #fff;
+           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+           text-align: center;
+       }
+   #da::after, #de::after,#de::after {
+   content: '';
+   display: block;
+   border-top: 2px solid black;
+   margin: 20px 0; /* Adjust the margin as needed */
 }
 a {
-        text-decoration: none;
-        color: whitesmoke; /* This makes the link color the same as its parent element's color */
-    }
-    body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            font-size: 22px;
-        }
+       text-decoration: none;
+       color: whitesmoke; /* This makes the link color the same as its parent element's color */
+   }
+   body {
+           margin: 0;
+           padding: 0;
+           font-family: Arial, sans-serif;
+           font-size: 22px;
+       }
 
-        .thumbnail-container {
-            position: relative;
-            width: 100%;
-            height: 400px; /* Set the height of your thumbnail container */
-            overflow: hidden;
-        }
+       .thumbnail-container {
+           position: relative;
+           width: 100%;
+           height: 400px; /* Set the height of your thumbnail container */
+           overflow: hidden;
+       }
 
-        .thumbnail {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensure the image covers the entire container */
-        }
+       .thumbnail {
+           width: 100%;
+           height: 100%;
+           object-fit: cover; /* Ensure the image covers the entire container */
+       }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Adjust the alpha channel to control transparency */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
+       .overlay {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background: rgba(0, 0, 0, 0.5); /* Adjust the alpha channel to control transparency */
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           color: white;
+           text-align: center;
+       }
 
-        .overlay h2 {
-            margin-bottom: 20px;
-        }
+       .overlay h2 {
+           margin-bottom: 20px;
+       }
 
-        .signup-message {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
+       .signup-message {
+           font-size: 18px;
+           margin-bottom: 20px;
+       }
 
-        .signup-button {
-            padding: 10px 20px;
-            background-color: rgb(243, 178, 103);
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-        
+       .signup-button {
+           padding: 10px 20px;
+           background-color: rgb(243, 178, 103);
+           color: white;
+           cursor: pointer;
+           font-size: 16px;
+           border-radius: 5px;
+       }
+       
 
-  @keyframes slideInFromBottom {
-            0% {
-                transform: translateY(100%);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
+ @keyframes slideInFromBottom {
+           0% {
+               transform: translateY(100%);
+           }
+           100% {
+               transform: translateY(0);
+           }
+       }
 
-        .animate-on-scroll {
-            animation-duration: 1s; /* Adjust the duration as needed */
-            animation-timing-function: ease-out; /* Adjust the timing function as needed */
-            animation-fill-mode: both;
-        }
-        .animate__animated.animate__fadeInUp {
-  --animate-duration: 4s;
+       .animate-on-scroll {
+           animation-duration: 1s; /* Adjust the duration as needed */
+           animation-timing-function: ease-out; /* Adjust the timing function as needed */
+           animation-fill-mode: both;
+       }
+       .animate__animated.animate__fadeInUp {
+ --animate-duration: 4s;
 }
 
 
-/* This changes all the animations globally */
+
 :root {
-  /* --animate-duration: 800ms; */
-  --animate-delay: 1.8s;
+ --animate-duration: 800ms;
+ --animate-delay: 1.8s;
 }
 </style>
 </head>

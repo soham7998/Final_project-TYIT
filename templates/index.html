@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="icon" href="static/react.png" sizes="34x34" />
- <style>
+    <style>
         /* Add the following styles for mobile responsiveness */
         @media (max-width: 768px) {
            .navbar-left, .navbar-right {
@@ -148,6 +148,7 @@ footer {
    text-align: center;
    padding: 16px;
    background-color: #333;
+   
 }
 
 @media (max-width: 768px) {
@@ -289,7 +290,7 @@ a {
 
 :root {
  --animate-duration: 800ms;
- --animate-delay: 1.8s;
+ --animate-delay: 1.7s;
 }
 </style>
 </head>
@@ -344,25 +345,7 @@ a {
         <p style="font-size: 24px;font-family: 'Times New Roman', Times, serif;">D3Hub is your ultimate destination for everything related to Data Analyst, Data Engineer, and Data Science. Whether you're exploring tutorials, seeking certificates, or following a roadmap to success, we've got you covered on your journey in the world of data. Welcome to a platform designed to help you thrive in the exciting fields of data analysis, engineering, and science!</p>
     </section>
 
-<!--     <script>
-        var lastScrollTop = 0;
 
-        window.addEventListener('scroll', function () {
-            var currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            var direction = currentScrollTop > lastScrollTop ? 'down' : 'up';
-            var element = document.getElementById('home');
-
-            if (direction === 'up') {
-                element.classList.add('animate-on-scroll');
-                element.style.animationName = 'slideInFromTop';
-            } else {
-                element.classList.add('animate-on-scroll');
-                element.style.animationName = 'slideInFromBottom';
-            }
-
-            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-        });
-    </script> -->
 
     <section id="da">
         <a href="/DA">
@@ -420,7 +403,7 @@ a {
             </div>
             <div class="discord-button">
                 <p>Join our Discord server:</p>
-                <a href="https://discord.com/invite/caxbmM3v" target="_blank">
+                <a href="https://discord.gg/RY4p7JrzGj" target="_blank">
                     <button style="background-color: #7289DA; color: white;">Join Discord</button></a>
             <button class="signup-button" onclick="location.href='/signup'">Sign Up</button>
         </div>
@@ -429,8 +412,8 @@ a {
 </div>
 </div>
     <section id="ds">
-        <a href ="/DS">
-        <h2 class="animate__animated animate__fadeInRight">Data Science</h2><p>Explore More</p></a>
+        <a href ="/DS"></a>
+        <h2 class="animate__animated animate__fadeInRight">Data Science</h2><p>Explore More</p>
         <p class="animate__animated animate__fadeInUp">Data Science is a multidisciplinary field that uses a combination of principles and practices to analyze large amounts of data. It combines principles and practices from the fields of: Mathematics, Statistics, Artificial intelligence, Computer engineering.</p>
         <div class="page-content">
             <div class="column">
@@ -475,6 +458,7 @@ a {
     </div>
     <div style="clear: both;"></div>
 </footer>
+
 <script>
     function changeToDataScienceImage() {
         document.getElementById('changing-image').src = './static/Data-Science-Image.jpg';
@@ -491,6 +475,18 @@ a {
 </script>
 
 
-
+<script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '6600615ee1b3c7fc8aed9134' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production'
+          });
+        }
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
 </body>
 </html>

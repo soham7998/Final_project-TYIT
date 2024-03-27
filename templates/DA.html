@@ -9,7 +9,7 @@
     <link rel="icon" href="./static/react.png" sizes="32x32" type="image/png">
 
     <style>
-        @media (max-width: 768px) {
+  @media (max-width: 768px) {
     .navbar-left, .navbar-right {
         flex-direction: column;
         align-items: center;
@@ -17,6 +17,11 @@
 
     .navbar a, .navbar button {
         margin: 10px 0;
+    }
+
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
     }
 
     #changing-image {
@@ -333,6 +338,28 @@
                 </a>
         </div>
     </div>
+<!-- FLOW OF CERTIFICATES -->
+<h2 class="animate__animated animate__fadeInRightBig" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Certificates Flow</h2>
+<div class="page-content">
+    <div class="column">
+        <h2 style="font-size: 20px;">Begineer</h2>
+        <a href="static/flowDA1.png" target="_blank">
+            <img class="zoomable-image" src="static/flowDA1.png" alt="Certificate Thumbnail">
+        </a>
+    </div>
+    <div class="column" data-toggle="modal" data-target="#certificatesModal">
+        <h2 style="font-size: 20px;">Intermediate</h2>
+        <a href="static/FLOWDA2" target="_blank">
+            <img class="zoomable-image" src="static/FLOWDA2.png" alt="Certificate Thumbnail">
+        </a>
+    </div>
+    <div class="column" data-toggle="modal" data-target="#certificatesModal">
+        <h2 style="font-size: 20px;">Advanced</h2>
+        <a href="static/FLOWDA3.png" target="_blank">
+            <img class="zoomable-image" src="static/FLOWDA3.png" alt="Certificate Thumbnail">
+        </a>
+    </div>
+</div>
 
     <footer>
         <div style="float: left; text-align: left; width: 33%;">
@@ -350,7 +377,7 @@
             </p>
         </div>
         <div style="float: right; text-align: right; width: 33%;">
-            <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;" target="_blank">Learn more</a>
+            <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;">Learn more</a>
             <p style="font-size:17px;">Connect With Me
             <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
             <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |

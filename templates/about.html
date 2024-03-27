@@ -15,16 +15,17 @@
         }
 
         .container {
-            max-width: 1200px;
+            width: 100vw;
             margin: 0 auto;
             overflow: hidden;
         }
 
         .about-section {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 50px 20px;
+            flex-wrap:wrap;
+            justify-content:space-evenly;
+            padding:20px;
+            width: 100vw;
         }
 
         .about-img {
@@ -35,7 +36,7 @@
 
         .about-img img {
             width: 100%;
-            height: auto;
+            height:fit-content;
         }
 
         .about-details {
@@ -43,6 +44,7 @@
             margin-left: 20px;
             font-family: 'Times New Roman', Times, serif;
             font-size: large;
+            overflow-x: auto;
         }
 
         .about-details h2 {
@@ -59,16 +61,6 @@
         .about-details strong {
             font-size: 20px;
             color: #333;
-        }
-
-        footer {
-            margin-top: 50px;
-            font-size: 16px;
-            color: #777;
-            width: 100%;
-            text-align: center;
-            padding: 16px;
-            background-color: #333;
         }
 
         @media (max-width: 700px) {
@@ -122,6 +114,7 @@
             margin: 0 20px;
             font-size: 18px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 5px 0px;
         }
 
         .navbar-left {
@@ -188,7 +181,7 @@
                 <h2>About Me</h2>
                 <p style="font-size:22px;">
                    <strong>Introduction:</strong>
-                   My Self Soham Shah, an  Enthusiastic Data enthusiast. Through various projects, I've gained hands-on Experience with diverse datasets and tools in the realm of Data Analytics.
+                  Hello there!, My Self Soham Shah, an  Enthusiastic Data enthusiast. Through various projects, I've gained hands-on Experience with diverse datasets and tools in the realm of Data Analytics.
                 </p>
 
                    <strong>Educational Background:</strong>
@@ -248,7 +241,7 @@
             </p>
         </div>
         <div style="float: right; text-align: right; width: 33%;">
-            <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;" target="_blank">Learn more</a>
+            <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;">Learn more</a>
             <p style="font-size:17px;">Connect With Me
             <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
             <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |

@@ -1,9 +1,18 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, make_response,redirect, url_for, flash , session
 from pymongo import MongoClient
 import secrets
+import time
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16) 
+
+# Function to check if the session has expired
+def session_expired():
+    if 'login_time' in session:
+        # Check if the session is expired (5 minutes)
+        return time.time() - session['login_time'] > 300
+    return True
+
 
 @app.route('/database', methods=['POST'])
 def button_click():
@@ -37,10 +46,25 @@ def submit_login():
 
     if user:
         flash('Login successful!', 'success')  # Flash a success message
-        return redirect(url_for('index'))  # Redirect to the index page after successful login
+        session['username'] = username  # Set the username in the session
+        session['login_time'] = time.time()  # Set the login time
+        response = make_response(redirect(url_for('index')))
+
+        # Set cookies
+        response.set_cookie('isAuthenticated', 'true')
+
+        return response  
+        # return redirect(url_for('index'))  # Redirect to the index page after successful login
     else:
         flash('Login failed. Invalid username or password.', 'error')  # Flash an error message
         return redirect(url_for('login'))  # Redirect to the login page on login failure
+ 
+
+
+@app.route('/logout')
+def logout():
+    session.clear()  # Clear the session data
+    return redirect(url_for('login'))
 
 
 
@@ -51,6 +75,10 @@ def index():
 @app.route('/DA')
 def data_analyst():
     return render_template('DA.html')
+
+@app.route('/selfpractice')
+def selfpractice():
+    return render_template('selfpractice.html')
 
 @app.route('/login')
 def login():

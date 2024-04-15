@@ -229,12 +229,24 @@ body {
             <!-- <a href="/selfpractice">Self Practice</a> -->
         </div>
         <div class="navbar-center"></div>
-        <!-- <div class="navbar-right">
-            <a href="login">
-            <button>Login</button></a>
-            <button onclick="location.href='/signup'" style="background-color: rgb(243, 178, 103);">Signup</button>
-        </div> -->
-    </div>
+        <div class="navbar-right" style="margin-top: 10px;">
+            {% if 'username' in session %}
+            <p style="color: white; margin-right: 10px; margin-top: 5px; font-size: 20px;">Logged in : {{ session['username'] }}</p>
+            <button class="logout-button" id="logout-sos">Logout</button>
+            {% else %}
+            <a href="/login">
+                <button class="login-button">Login</button>
+            </a>
+            {% endif %}
+            {% if 'username' not in session %}
+            <button onclick="location.href='/signup'"
+                style="font-size: 18px; background-color: rgb(243, 178, 103); margin-top: 5px;">Signup</button>
+            {% endif %}
+        </div>
+        </div>
+        
+        
+        
 
     <header>
         <h1>Data Science - D3Hub</h1>
@@ -357,20 +369,20 @@ body {
 <div class="page-content">
     <div class="column">
         <h2 style="font-size: 20px;">Begineer</h2>
-        <a href="static/flowDA1.png" target="_blank">
-            <img class="zoomable-image" src="static/flowDA1.png" alt="Certificate Thumbnail">
+        <a href="static/DSflow1.png" target="_blank">
+            <img class="zoomable-image" src="static/DSflow1.png" alt="Certificate Thumbnail">
         </a>
     </div>
     <div class="column" data-toggle="modal" data-target="#certificatesModal">
         <h2 style="font-size: 20px;">Intermediate</h2>
-        <a href="static/flowDA2.png" target="_blank">
-            <img class="zoomable-image" src="static/flowDA2.png" alt="Certificate Thumbnail">
+        <a href="static/DSflow2.png" target="_blank">
+            <img class="zoomable-image" src="static/DSflow2.png" alt="Certificate Thumbnail">
         </a>
     </div>
     <div class="column" data-toggle="modal" data-target="#certificatesModal">
         <h2 style="font-size: 20px;">Advanced</h2>
-        <a href="static/flowDA3.png" target="_blank">
-            <img class="zoomable-image" src="static/flowDA3.png" alt="Certificate Thumbnail">
+        <a href="static/DSflow3.png" target="_blank">
+            <img class="zoomable-image" src="static/DSflow3.png" alt="Certificate Thumbnail">
         </a>
     </div>
 </div>
@@ -399,5 +411,38 @@ body {
         </div>
         <div style="clear: both;"></div>
     </footer>
+    <script>
+        function isAuthenticated() {
+               // Get all cookies
+               var cookies = document.cookie.split(";");
+               console.log(cookies)
+   
+               // Loop through the cookies to find isAuthenticated cookie
+               for (var i = 0; i < cookies.length; i++) {
+                   var cookie = cookies[i].trim();
+                   // Check if the cookie is isAuthenticated
+                   if (cookie.startsWith("isAuthenticated=")) {
+                       // Get the value of isAuthenticated cookie
+                       var value = cookie.substring("isAuthenticated=".length, cookie.length);
+                       // Return true if the value is "true", otherwise false
+                       return value === "true";
+                   }
+               }
+               console.log("came")
+               // Return false if isAuthenticated cookie is not found
+               return false;
+           }
+   
+           document.getElementById("logout-sos").addEventListener("click", function () {
+       // Set isAuthenticated cookie to false
+       document.cookie = "isAuthenticated=false";
+   
+       // Redirect to /logout
+       window.location.href = "/logout";
+   });
+   
+   
+   
+       </script>
 </body>
 </html>

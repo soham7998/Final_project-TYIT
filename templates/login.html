@@ -192,15 +192,23 @@
         </div>
         <div class="navbar-center"></div>
         <div class="navbar-right">
-            <a href="login">
-                <button onclick="location.href='/login'">Login</button></a>
+            {% if 'username' in session %}
+            <!-- <a href="/logout"> -->
+            <button class="logout-button" id="logout-sos">Logout</button>
+            <!-- </a> -->
+            {% else %}
+            <!-- <a href="/login">
+                <button class="login-button">Login</button>
+            </a> -->
+            {% endif %}
             <button onclick="location.href='/signup'"
-                style="background-color: rgb(243, 178, 103); font-family: 'poppins'; font-size: 18px;">Signup</button>
+                style="font-size: 18px; background-color: rgb(243, 178, 103);">Signup</button>
         </div>
     </div>
+        
 
     <header>
-        <h1>Login - D3Hub</h1>
+        <h1 style=" font-weight: bold;">Login - D3Hub</h1>
     </header>
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
@@ -209,9 +217,7 @@
             {% for category, message in messages %}
             {{ message }}
             {% endfor %}
-            <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button> -->
+            
         </div>
     </div>
 

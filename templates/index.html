@@ -205,6 +205,7 @@
             /* text-decoration: none; */
             color: #000;
         }
+        
 
         #da a:hover,
         #de a:hover,
@@ -342,20 +343,24 @@
             <a  id="sp-link">Self Practice</a>
         </div>
         <div class="navbar-center"></div>
-        <div class="navbar-right">
+        <div class="navbar-right" style="margin-top: 10px;">
             {% if 'username' in session %}
-            <!-- <a href="/logout"> -->
+            <p style="color: white; margin-right: 10px; margin-top: 5px; font-size: 20px;">Logged in: {{ session['username'] }}</p>
             <button class="logout-button" id="logout-sos">Logout</button>
-            <!-- </a> -->
             {% else %}
             <a href="/login">
                 <button class="login-button">Login</button>
             </a>
             {% endif %}
+            {% if 'username' not in session %}
             <button onclick="location.href='/signup'"
-                style="font-size: 18px; background-color: rgb(243, 178, 103);">Signup</button>
+                style="font-size: 18px; background-color: rgb(243, 178, 103); margin-top: 5px;">Signup</button>
+            {% endif %}
         </div>
-    </div>
+        </div>
+        
+        
+        
 
 
     <header>
@@ -629,14 +634,10 @@
     document.cookie = "isAuthenticated=false";
 
     // Redirect to /logout
-    window.location.href = "/login";
+    window.location.href = "/logout";
 });
 
-
-
     </script>
-
-
 
 </body>
 

@@ -155,20 +155,23 @@
             <a href="/DS" id="ds-link">Data Science</a>
             <a href="/selfpractice" id="sp-link">Self Practice</a>
         </div>
-        <div class="navbar-center"></div>
-        <!-- <div class="navbar-right">
-            {% if 'username' in session %}
-                <a href="/logout">
-                    <button class="logout-button" id="logout-sos">Logout</button>
-                </a>
-            {% else %}
-                <a href="/login">
-                    <button class="login-button">Login</button>
-                </a>
-            {% endif %}
-            <button onclick="location.href='/signup'" style="font-size: 18px; background-color: rgb(243, 178, 103);">Signup</button>
-        </div> -->
-    </div>
+      <div class="navbar-center"></div>
+      <div class="navbar-right" style="margin-top: 10px;">
+          {% if 'username' in session %}
+          <p style="color: white; margin-right: 10px; margin-top: 5px; font-size: 20px;">Logged in : {{ session['username'] }}</p>
+          <button class="logout-button" id="logout-sos">Logout</button>
+          {% else %}
+          <a href="/login">
+              <button class="login-button">Login</button>
+          </a>
+          {% endif %}
+          {% if 'username' not in session %}
+          <button onclick="location.href='/signup'"
+              style="font-size: 18px; background-color: rgb(243, 178, 103); margin-top: 5px;">Signup</button>
+          {% endif %}
+      </div>
+      </div>
+
 
         <header>
             <h1>Self Practice - Specially for you!</h1>

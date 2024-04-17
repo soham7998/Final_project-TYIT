@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response, redirect, url_for, flash, session
+from flask import Flask, render_template, request, make_response,redirect, url_for, flash , session
 from pymongo import MongoClient
 import secrets
 import time
@@ -9,16 +9,10 @@ app.secret_key = secrets.token_hex(16)
 # Function to check if the session has expired
 def session_expired():
     if 'login_time' in session:
-        # Check if the session is expired (1 hour)
+        # Check if the session is expired (5 minutes)
         return time.time() - session['login_time'] > 300
     return True
 
-@app.before_request
-def before_request():
-    if 'username' in session and session_expired():
-        # If user is logged in but session is expired, log them out
-        session.clear()
-        flash('Session expired. Please log in again.', 'error')
 
 @app.route('/database', methods=['POST'])
 def button_click():
@@ -33,6 +27,7 @@ def button_click():
     user_data = {'username': username, 'email': email, 'password': password}
     users_collection.insert_one(user_data)
 
+    
     print(f"Username: {username}, Email: {email}, Password: {password}")
     return render_template('login.html')
 
@@ -63,17 +58,18 @@ def submit_login():
     else:
         flash('Login failed. Invalid username or password.', 'error')  # Flash an error message
         return redirect(url_for('login'))  # Redirect to the login page on login failure
+ 
+
 
 @app.route('/logout')
 def logout():
     session.clear()  # Clear the session data
     return redirect(url_for('login'))
 
+
+
 @app.route('/')
 def index():
-    if 'username' in session and session_expired():
-        flash('Session expired. You have been logged out.', 'error')
-        session.clear()  # Clear the session data
     return render_template('index.html')
 
 @app.route('/DA')
@@ -104,5 +100,4 @@ def data_science():
 def about():
     return render_template('about.html')
 
-if __name__ == "__main__":
-    app.run(debug=True)
+

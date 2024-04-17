@@ -331,13 +331,28 @@
         }
     </style>
     <script>
-        // Check if the isAuthentication cookie exists
-var isAuthenticationCookie = document.cookie.split(';').some((item) => item.trim().startsWith('isAuthentication='));
+      function checkAuthentication() {
+            console.log(document.cookie,"called")
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.startsWith("isAuthenticated")) {
+                var authValue = cookie.substring("isAuthenticated=".length, cookie.length);
+                console.log(typeof authValue);
+                if (authValue === "true") {
+                    console.log(1)
+                    document.getElementById("divA").style.display = "block";
+                } else {
+                    console.log(2)
+                    document.getElementById("divB").style.display = "block";
+                }
+                break;
+            }
+        }
+    }
 
-// Set isAuthentication based on the value of the cookie
-var isAuthentication = isAuthenticationCookie ? true : false;
-
-// Now you can use the value of isAuthentication to render the appropriate content in your HTML
+    // Call the function when the page loads
+    window.onload = checkAuthentication;
     </script>
 </head>
 
@@ -597,26 +612,7 @@ var isAuthentication = isAuthenticationCookie ? true : false;
 
     <!-- POPUP -->
     <script>
-        function checkAuthentication() {
-            console.log(document.cookie,"called")
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            if (cookie.startsWith("isAuthenticated")) {
-                var authValue = cookie.substring("isAuthenticated=".length, cookie.length);
-                console.log(typeof authValue);
-                if (authValue === "true") {
-                    document.getElementById("divA").style.display = "block";
-                } else {
-                    document.getElementById("divB").style.display = "block";
-                }
-                break;
-            }
-        }
-    }
-
-    // Call the function when the page loads
-    window.onload = checkAuthentication;
+      
     
         document.getElementById('sp-link').addEventListener('click', function () {
             if (!isAuthenticated()) {

@@ -10,7 +10,7 @@ app.secret_key = secrets.token_hex(16)
 def session_expired():
     if 'login_time' in session:
         # Check if the session is expired (1 hour)
-        return time.time() - session['login_time'] > 3600
+        return time.time() - session['login_time'] > 300
     return True
 
 @app.before_request

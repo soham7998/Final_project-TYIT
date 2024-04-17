@@ -353,15 +353,23 @@ var isAuthentication = isAuthenticationCookie ? true : false;
         </div>
         <div class="navbar-center"></div>
         <div class="navbar-right" style="margin-top: 10px;">
-            {% if isAuthentication %}
-    <p style="color: white; margin-right: 10px; margin-top: 5px; font-size: 20px;">Logged in: {{ session['username'] }}</p>
-    <button class="logout-button" id="logout-sos">Logout</button>
-{% else %}
-    <a href="/login">
-        <button class="login-button">Login</button>
-    </a>
-    <button onclick="location.href='/signup'" style="font-size: 18px; background-color: rgb(243, 178, 103); margin-top: 5px;">Signup</button>
-{% endif %}
+            {% if 'username' in session %}
+            <div id="divA" style="display: none;">
+            <p style="color: white; margin-right: 10px; margin-top: 5px; font-size: 20px;">Logged in: {{ session['username'] }}</p>
+            <button class="logout-button" id="logout-sos">Logout</button>
+            </div>
+            {% else %}
+            <div id="divB" style="display: none;">
+            <a href="/login">
+                <button class="login-button">Login</button>
+            </a>
+            <button onclick="location.href='/signup'"
+            style="font-size: 18px; background-color: rgb(243, 178, 103); margin-top: 5px;">Signup</button>
+            </div>
+            {% endif %}
+            <!-- {% if 'username' not in session %} -->
+          
+            <!-- {% endif %} -->
         </div>
         </div>
         
@@ -589,6 +597,25 @@ var isAuthentication = isAuthenticationCookie ? true : false;
 
     <!-- POPUP -->
     <script>
+        function checkAuthentication() {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.startsWith("isAuthenticated")) {
+                var authValue = cookie.substring("isAuthenticated=".length, cookie.length);
+                if (authValue === "true") {
+                    document.getElementById("divA").style.display = "block";
+                } else {
+                    document.getElementById("divB").style.display = "block";
+                }
+                break;
+            }
+        }
+    }
+
+    // Call the function when the page loads
+    window.onload = checkAuthentication;
+    
         document.getElementById('sp-link').addEventListener('click', function () {
             if (!isAuthenticated()) {
                 Swal.fire({

@@ -1,73 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://dataworld.vercel.app/static/Logo.png">
-    <title>D3Hub - Explore Data World</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Data Analyst - D3Hub</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link rel="icon" href="static/react.png" sizes="34x34" />
+    <link rel="icon" href="./static/react.png" sizes="32x32" type="image/png">
+
     <style>
-        /* Add the following styles for mobile responsiveness */
-        @media (max-width: 768px) {
+  @media (max-width: 768px) {
+    .navbar-left, .navbar-right {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .navbar-left,
-            .navbar-right {
-                flex-direction: column;
-                align-items: center;
-            }
+    .navbar a, .navbar button {
+        margin: 10px 0;
+    }
 
-            .navbar a,
-            .navbar button {
-                margin: 10px 0;
-            }
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
 
-            #changing-image {
-                width: 100%;
-            }
+    #changing-image {
+        width: 100%;
+    }
 
-            .page-content {
-                flex-direction: column;
-            }
+    .page-content {
+        flex-direction: column;
+    }
 
-            .column {
-                flex: 0 0 100%;
-            }
-        }
+    .column {
+        flex: 0 0 100%;
+    }
+}
 
+/* Your existing styles remain unchanged below this line */
         body {
-            font-family: 'Montserrat';
+            font-family: 'poppins';
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
-            font-size: 20px;
+             
         }
-
+   
         header {
             background-color: #333;
-            color: white;
+            color: rgb(61, 205, 198);
             padding: 16px;
             text-align: center;
-            font-family: 'poppins';
-        }
-
-        nav {
-            background-color: #444;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
+            font-family:'poppins';
         }
 
         .navbar {
@@ -78,7 +64,6 @@
             padding: 20px;
             text-align: center;
             width: 100%;
-            font-family: 'poppins';
         }
 
         .navbar a {
@@ -87,9 +72,7 @@
             margin: 0 20px;
             font-size: 18px;
             font-family: 'poppins';
-            padding-bottom: 5px;
         }
-
 
         .navbar-left {
             display: flex;
@@ -97,20 +80,21 @@
         }
 
         .navbar-left a {
-            margin: 0 10px;
+            margin: 0 20px;
         }
+        .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
 
         .navbar-center {
             flex: 1;
-            /* Allow the center to take as much space as it needs */
             text-align: center;
         }
 
         .navbar-right {
             display: flex;
             align-items: center;
-            font-size: 18px;
-            font-family: 'poppins';
         }
 
         .navbar-right button {
@@ -118,114 +102,38 @@
             padding: 10px 10px;
             background-color: rgb(243, 178, 103);
             color: white;
+            border: none;
             cursor: pointer;
+            font-size: 16px;
             border-radius: 12px;
-            /* font-family:Verdana, Geneva, Tahoma, sans-serif; */
-        }
-
-        .login-button {
-            position: relative;
-            top: 2px;
+            font-family: 'poppins';
         }
 
         section {
-            padding: 30px;
+            padding: 20px;
         }
-
-        #image-row {
+        
+        footer {
+        margin-top: auto;
+        font-size: 16px;
+        color: #777;
+        width: 100%;
+        text-align: center;
+        padding: 16px;
+        background-color: #333;
+    }
+    .page-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px;
-        }
-
-        #changing-image {
-            width: 50%;
-            height: 40%;
-            animation: changeImage 4s infinite;
-        }
-
-        @keyframes changeImage {
-
-            0%,
-            25% {
-                opacity: 1;
-            }
-
-            50%,
-            75% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        footer {
-            margin-top: auto;
-            font-size: 16px;
-            color: #777;
-            width: 100%;
-            text-align: center;
-            padding: 16px;
-            background-color: #333;
-            font-family: 'poppins';
-
-        }
-
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-left,
-            .footer-center {
-                margin-bottom: 10px;
-            }
-        }
-
-        .footer-right {
-            text-align: center;
-        }
-
-
-        #da a {
-            /* text-decoration: none; */
-            color: #000;
-        }
-
-        #de a {
-            /* text-decoration: none; */
-            color: #000;
-        }
-
-        #ds a {
-            /* text-decoration: none; */
-            color: #000;
+            height: max-content;/* Adjust the height as needed */
+            overflow-x:scroll;
+            margin-top:6vw;
         }
         
 
-        #da a:hover,
-        #de a:hover,
-        #ds a:hover {
-            color: green;
-            /* Change to your desired hover color */
-        }
-
-        .page-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: max-content;
-            /* overflow-x:scroll; */
-
-        }
-
         .column {
-            flex: 0 0 30%;
-            /* Each column takes 30% of the container width */
+            flex: 0 0 30%; /* Each column takes 30% of the container width */
             padding: 20px;
             margin: 10px;
             background-color: #fff;
@@ -233,119 +141,69 @@
             text-align: center;
             border-radius: 10px;
         }
-
-        #da::after,
-        #de::after,
-        #de::after {
-            content: '';
-            display: block;
-            /* border-top: 2px solid black; */
-            margin: 20px 0;
-            /* Adjust the margin as needed */
-        }
-
-        a {
-            text-decoration: none;
-            color: whitesmoke;
-            /* This makes the link color the same as its parent element's color */
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat';
-            font-size: 22px;
-        }
-
-        .thumbnail-container {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            /* Set the height of your thumbnail container */
-            overflow: hidden;
-        }
-
-        .thumbnail {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* Ensure the image covers the entire container */
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            /* Adjust the alpha channel to control transparency */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
+        .role-description {
             text-align: center;
+            /* padding: 20px; */
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 18px;
+            color: black;
         }
 
-        .overlay h2 {
-            margin-bottom: 20px;
+        .role-description h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
-        .signup-message {
+        .role-description p {
             font-size: 18px;
-            margin-bottom: 20px;
+            line-height: 1.5;
+            margin-bottom: 15px;
         }
 
-        .signup-button {
-            padding: 10px 30px;
-            background-color: rgb(243, 178, 103);
-            color: white;
-            cursor: pointer;
-            font-size: 22px;
-            border-radius: 12px;
+        .role-description b {
+            font-size: 20px;
         }
+    .zoomable-image {
+        width: 80%;
+        height: auto;
+        object-fit: contain;
+        cursor: zoom-in;
+        transition: transform 0.3s ease;
+    }
+
+    .zoomable-image:hover {
+        transform: scale(1.2);
+    }
+    a {
+        text-decoration: none;
+        color: whitesmoke; /* This makes the link color the same as its parent element's color */
+    }
+    .animate__animated.animate__fadeInUp {
+  --animate-duration: 2s;
+}
 
 
-        .animate-on-scroll {
-            animation-duration: 1s;
-            /* Adjust the duration as needed */
-            animation-timing-function: ease-out;
-            /* Adjust the timing function as needed */
-            animation-fill-mode: both;
-        }
-
-        .animate__animated.animate__fadeInUp {
-            --animate-duration: 4s;
-        }
-
-        #sp-link{
-            color: white;
-            cursor: pointer;
-        }
-
-
-        :root {
-            --animate-duration: 800ms;
-            --animate-delay: 1.7s;
-        }
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 1.2s;
+}
     </style>
 </head>
-
 <body>
 
     <div class="navbar">
         <div class="navbar-left">
             <a href="/">Home</a>
-            <a href="/DA" id="da-link">Data Analyst</a>
-            <a href="/DE" id="de-link">Data Engineer</a>
-            <a href="/DS" id="ds-link">Data Science</a>
-            <a  id="sp-link">Self Practice</a>
+            <a href="/DA">Data Analyst</a>
+            <a href="/DE">Data Engineer</a>
+            <a href="/DS">Data Science</a>
+            <!-- <a href="/selfpractice">Self Practice</a> -->
         </div>
         <div class="navbar-center"></div>
         <div class="navbar-right" style="margin-top: 10px;">
             {% if 'username' in session %}
-            <p style="color: white; margin-right: 10px; margin-top: 5px; font-size: 20px;">Logged in: {{ session['username'] }}</p>
+            <p style="color: white; margin-right: 10px; margin-top: 5px; font-size: 20px;">Logged in : {{ session['username'] }}</p>
             <button class="logout-button" id="logout-sos">Logout</button>
             {% else %}
             <a href="/login">
@@ -359,167 +217,170 @@
         </div>
         </div>
         
-        
-        
-
 
     <header>
-        <h1>D3Hub - Why Data is Important?📈</h1>
+        <h1>Data Analyst - D3Hub</h1>
     </header>
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    <div class="container mt-3">
-        {% for category, message in messages %}
-        <div class="alert alert-{{ category }}" role="alert" id="flash-message">
-            {% if 'username' in session %}
-            <p>Hello, {{ session['username'] }}!</p>
-            {% else %}
-            <p>You are not logged in.</p>
-            {% endif %}
+     <div class="role-description">
+        <h2 style="font-family:Georgia, 'Times New Roman', Times, serif">Role of a Data Analyst</h2>
+        <p class="animate__animated animate__fadeInRight" style="font-family:'poppins'; font-size: 18px;"><b>A Data Analyst is a professional who interprets and analyzes complex data sets to help companies make informed decisions. The role involves collecting, processing, and analyzing data, and then presenting it in a way that is meaningful and relevant for decision-making. Key aspects of the role of a data analyst:</b></p>
+        <section class="animate__animated animate__fadeInUp">
+            <p><i><b>Data Collection: </b></i> Data Analysts gather data from various sources, including databases, spreadsheets, and external data sets. They may also use tools to extract information from different platforms.</p>
+            <p><i><b>Data Cleaning and Processing: </b></i> Raw data is often messy and needs to be cleaned and processed before analysis. Data analysts clean, organize, and format data to ensure accuracy and consistency.</p>
+            <p><i><b>Data Analysis: </b></i> The core responsibility of a data analyst is to analyze data to identify trends, patterns, and insights. They use statistical methods, data visualization, and other analytical techniques to derive meaningful information.</p>
+            <p><i><b>Data Visualization: </b></i> Data analysts create visualizations such as charts, graphs, and dashboards to communicate their findings effectively. Visualization helps stakeholders understand complex data and make data-driven decisions.</p>
+            <p><i><b>Reporting: </b></i> Data analysts generate reports summarizing their analysis and insights. These reports may be presented to various stakeholders, including executives, managers, or other team members.</p>
+            <p><i><b>Communication Skills: </b></i> Data analysts need strong communication skills to convey their findings to non-technical stakeholders. The ability to translate complex data into actionable insights is crucial.</p>
+            <p><i><b>Collaboration: </b></i> Data analysts often work collaboratively with other teams, such as IT, marketing, or finance, to understand business needs and align data analysis with organizational goals.</p>
+            <p><i><b>Data Analyst Tools: </b></i> Collaborating with data scientists and analysts to understand their data requirements, providing clean and well-organized data for analysis and reporting.</p>
+        </section>
+         
+    <h2  class ="animate__animated animate__fadeInRight" style="font-family:'Montserrat';font-size: 22px; " ><b>YouTube</h2></b>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Why Data Analyst?</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/_gP-DH0iZLw?si=tGKY4sUhT0nnKucy" frameborder="0" allowfullscreen></iframe>
         </div>
-        {% endfor %}
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Certificate</h2>
+            <a href="https://www.coursera.org/professional-certificates/google-data-analytics/" target="_blank">
+                <img class="zoomable-image" src="static/DAbadge.png" alt="Certificate Thumbnail">
+            </a>
+            <p>The Google Data Analyst certificate.</p>
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Roadmap for Data Analyst</h2>
+            <a href="static/DataAnalystRoadmap.png" target="_blank">
+                <img class="zoomable-image" src="static/DataAnalystRoadmap.png" alt="Certificate Thumbnail">
+            </a>
+            <p style="font-size: 16px;">Follow this roadmap to become a successful Data Analyst.</p>
+        </div>
+    </div>
+<!-- BOOKS -->
+    <h2 class ="animate__animated animate__fadeInRight" style="font-family:'Montserrat'; font-size: 22px;"><b>Data Analyst Books</h2></b>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Books</h2>
+            
+            <a href="https://amzn.eu/d/5wgFpRY" target="_blank">
+                <img class="zoomable-image" src="static/DA.jpeg" alt="Certificate Thumbnail">
+            </a>
+            <p>Fundamentals Of Data Analyst</p>
+        </div>
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Books</h2>
+            <a href="https://amzn.eu/d/2Pq8PiY" target="_blank">
+                <img class="zoomable-image" src="static/DAbook2.png" alt="Certificate Thumbnail">
+            </a>
+            <p>Spark: The Definitive Guide - Big Data Processing</p>
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Books</h2>
+            <a href="https://amzn.eu/d/emXNKds" target="_blank">
+                <img class="zoomable-image" src="static/DAbook3.jpeg" alt="Certificate Thumbnail">
+            </a>
+            <p>Designing Data-Intensive Applications: The Big Ideas Behind Reliable</p>
+        </div>
     </div>
 
-    <script>
-        setTimeout(function () {
-            var flashMessage = document.getElementById('flash-message');
-            flashMessage.remove();
-        }, 10000);
-    </script>
-    {% endif %}
-    {% endwith %}
-
-
-
-    <div id="image-row">
-        <img id="changing-image" src="./static/Data-science-Image.jpg" alt="Changing Image"
-            onmouseover="pauseAnimation()" onmouseout="resumeAnimation()">
+<!-- PROJECTS -->
+    
+    <h2 class ="animate__animated animate__fadeInRight" style="font-family:'Montserrat';font-size: 22px;"><b>Real Projects</h2></b>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Project</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/KgCgpCIOkIs?si=_NrJ_MbPRZQS4EDZ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Certificate</h2>
+            <a href="https://www.coursera.org/professional-certificates/ibm-data-analyst" target="_blank">
+                <img class="zoomable-image" src="static/IBMDA.png" alt="Certificate Thumbnail">
+            </a>
+            <p>IBM Data Analyst Certificate</p>
+        </div>
+        
+        <div class="modal fade" id="certificatesModal" tabindex="-1" role="dialog" aria-labelledby="certificatesModalLabel" aria-hidden="true">
+            <!-- ... Modal content for certificates ... -->
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Project</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/nl9eZl1IOKI?si=OoUm6QDMeYXGJknm" frameborder="0" allowfullscreen></iframe>
+        </div>
     </div>
+    
+    <!-- TOOLS -->
 
-    <section id="home" class="animate__animated animate__fadeInUp">
-        <h2 style="font-size: 30px;font-family:'poppins'">Welcome there📊</h2>
-        <p style="font-size: 24px;font-family: 'poppins'">D3Hub is your ultimate destination for everything related to
-            Data Analyst, Data Engineer, and Data Science. Whether you're exploring tutorials, seeking certificates, or
-            following a roadmap to success, we've got you covered on your journey in the world of data. Welcome to a
-            platform designed to help you thrive in the exciting fields of data analysis, engineering, and science!</p>
-    </section>
-
-
-
-    <section id="da">
-        <a href="/DA">
-            <h2 class="animate__animated animate__fadeInRight">Data Analyst,Who is Data Analyst?</h2>
-            <p>Explore More.</p>
+    <h2 class ="animate__animated animate__fadeInRight" style="font-family:'Montserrat';font-size: 22px;"><b>Tools</h2></b>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Tools</h2>
+            <!-- Replace the following iframe with the actual YouTube video embed code -->
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/JJdD_oM1CmQ?si=RSWaL5F9x5PGdCT_" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="column" data-toggle="modal" data-target="#certificatesModal">
+            <h2 style="font-size: 20px;">Skills</h2>
+            <a href="static/DA.png" target="_blank">
+                <img class="zoomable-image" src="static/DA.png" alt="Certificate Thumbnail">
+            </a>
+        </div>
+        
+        <div class="modal fade" id="certificatesModal" tabindex="-1" role="dialog" aria-labelledby="certificatesModalLabel" aria-hidden="true">
+            <!-- ... Modal content for certificates ... -->
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Tools</h2>
+            <iframe width="460" height="250" src="https://www.youtube.com/embed/eG-EmWX6El4?si=Xv2k33OxtkWEx8Ex" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <!-- MY PROJECTS -->
+    <h2  class ="animate__animated animate__fadeInRight"style="font-family:'Montserrat';font-size: 22px;"><b>My Projects</h2></b>
+    <p><b>Exploraty Data Analysis</b></p>
+    <div class="page-content">
+        <div class="column">
+            <h2 style="font-size: 20px;">Project 1</h2>
+            <p style="font-weight: bold; color: #333;"><b>Netflix EDA</b></p>
+            <a href="https://github.com/soham7998/Data-Analysis-Projects/blob/main/Netflix%20EDA/Netflix%20Data%20Analysis.ipynb" target="_blank">
+                <img src="./static/netflixEDA.jpeg" alt="Project 1" width="460" height="250">
+                </a>
+        </div>
+        <div class="column">
+            <h2 style="font-size: 20px;">Project 2</h2>
+            <p style="font-weight: bold; color: #333;"><b> DS Salary EDA</b></p>
+            <a href="https://github.com/soham7998/Data-Analysis-Projects/blob/main/DS%20Salary%20EDA/Data_Science_Salary-EDA.ipynb" target="_blank">
+                <img src="./static/ds.jpg" alt="Project 1" width="460" height="250">
+                </a>
+        </div>
+    </div>
+<!-- FLOW OF CERTIFICATES -->
+<h2 class="animate__animated animate__fadeInRightBig" style="font-family:'Montserrat';font-size: 22px;"><b>Certificates Flow</h2></b>
+<div class="page-content">
+    <div class="column">
+        <h2 style="font-size: 20px;">Begineer</h2>
+        <a href="static/DAflow1.png" target="_blank">
+            <img class="zoomable-image" src="static/DAflow1.png" alt="Certificate Thumbnail">
         </a>
-        <p class="animate__animated animate__fadeInUp">A Data analyst is a professional who gathers, organizes, and
-            analyzes information from various sources to help an organization achieve business goals.</p>
-        <div class="page-content">
-            <div class="column">
-                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
-                <!-- Replace the following iframe with the actual YouTube video embed code -->
-                <iframe width="460" height="250" src="https://www.youtube.com/embed/JTHyfv_GUCw?si=4poP2JZ4f-9eGJK2"
-                    frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="column">
-                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
-                <!-- Replace the following iframe with the actual YouTube video embed code -->
-                <iframe width="460" height="250" src="https://www.youtube.com/embed/qlH-7m-At4I" frameborder="0"
-                    allowfullscreen></iframe>
-
-            </div>
-            <div class="column">
-                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
-                <!-- Replace the following iframe with the actual YouTube video embed code -->
-                <iframe width="460" height="250" src="https://www.youtube.com/embed/_gF2Mj1354M?si=XMjyxvulvlDro6W8"
-                    frameborder="0" allowfullscreen></iframe>
-            </div>
-    </section>
     </div>
-    <section id="de">
-        <a href="/DE">
-            <h2 class="animate__animated animate__fadeInRight">Data Engineer</h2>
-            <p>Explore More</p>
+    <div class="column" data-toggle="modal" data-target="#certificatesModal">
+        <h2 style="font-size: 20px;">Intermediate</h2>
+        <a href="static/DAflow2.png" target="_blank">
+            <img class="zoomable-image" src="static/DAflow2.png" alt="Certificate Thumbnail">
         </a>
-        <p class="animate__animated animate__fadeInUp">Data Engineers work in various settings to build systems that
-            collect, manage, and convert raw data into usable information for data scientists and business analysts to
-            interpret.
-            Their ultimate goal is to make data accessible so that organisations can use it to evaluate and optimise
-            their performance.</p>
-        <div class="page-content">
-            <div class="column">
-                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
-                <!-- Replace the following iframe with the actual YouTube video embed code -->
-                <iframe width="460" height="250" src="https://www.youtube.com/embed/XW0YptcgZSk?si=Jvr5sJbSKJnFUcMD"
-                    frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="column">
-                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
-                <!-- Replace the following iframe with the actual YouTube video embed code -->
-                <iframe width="460" height="250" src="https://www.youtube.com/embed/HxdoBLc5_Qc?si=jjZjKr27AtVDoc9z"
-                    frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="column">
-                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
-                <!-- Replace the following iframe with the actual YouTube video embed code -->
-                <iframe width="460" height="250" src="https://www.youtube.com/embed/sGPWVYriqW4?si=GPlX_fsjTbXcUycA"
-                    frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <div class="thumbnail-container">
-        <img class="thumbnail" src="./static/disucss3.jpg" alt="Thumbnail Image" width="60%">
-        <div class="overlay">
-            <h2 class="animate__animated animate__fadeInRight"><b>Welcome to Group Discusssion's</h2></b>
-            <div class="signup-message">
-                Sign up to join our community and access Discussion- Forum!
-            </div>
-            <div class="discord-button">
-                <p>Join our Discord server:</p>
-                <a href="https://discord.gg/RY4p7JrzGj" target="_blank">
-                    <button class="signup-button"
-                        style="background-color: #7289DA; color: white; font-size: 20px;"><b>Join
-                            Discord</b></button></a>
-                <button class="signup-button" onclick="location.href='/signup'"><b>Sign Up</button></b>
-            </div>
-        </div>
     </div>
-    </div>
-    </div>
-    <section id="ds">
-        <a href="/DS">
-            <h2 class="animate__animated animate__fadeInRight">Data Science</h2>
-            <p>Explore More</p>
+    <div class="column" data-toggle="modal" data-target="#certificatesModal">
+        <h2 style="font-size: 20px;">Advanced</h2>
+        <a href="static/DAflow3.png" target="_blank">
+            <img class="zoomable-image" src="static/DAflow3.png" alt="Certificate Thumbnail">
         </a>
-        <p class="animate__animated animate__fadeInUp">Data Science is a multidisciplinary field that uses a combination
-            of principles and practices to analyze large amounts of data. It combines principles and practices from the
-            fields of: Mathematics, Statistics, Artificial intelligence, Computer engineering.</p>
-        <div class="page-content">
-            <div class="column">
-                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
-                <!-- Replace the following iframe with the actual YouTube video embed code -->
-                <iframe width="460" height="250" src="https://www.youtube.com/embed/-ETQ97mXXF0?si=UR2WASS-VYQjVLBh"
-                    frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="column">
-                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
-                <!-- Replace the following iframe with the actual YouTube video embed code -->
-                <iframe width="460" height="250" src="https://www.youtube.com/embed/5QnXkgZAyEw?si=0UOxRzKd7hiT3Rta"
-                    frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="column">
-                <h2 style="font-size: 20px;">Tutorial on YouTube</h2>
-                <!-- Replace the following iframe with the actual YouTube video embed code -->
-                <iframe width="460" height="250" src="https://www.youtube.com/embed/uIUvpJdYgSA?si=K4iBwc0EqYABwyt"
-                    frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
+    </div>
+</div>
+
     <footer>
         <div style="float: left; text-align: left; width: 33%;">
             <p style="display: inline-block;font-size: 18px;">"D3Hub?"
-            <p style="color: white;font-size: 18px;">"All about the data world"</p>
+                <p  style="color: white;font-size: 18px;">"All about the data world"</p>
         </div>
         <div style="display: inline-block; text-align: center; width: 33%;">
             <p>Made by Soham Shah</p>
@@ -527,88 +388,22 @@
             <p style="display: inline-block; font-size: 18px;">
                 <a href="/" style="text-decoration: none; color: white;">Home</a> |
                 <a href="/DA" style="text-decoration: none; color: white;">Data Analyst</a> |
-                <a href="/DE" style="text-decoration: none; color: white;">Data Engineer</a> |
-                <a href="/DS" style="text-decoration: none; color: white;">Data Science</a>.
+                <a href="/DE" style="text-decoration: none; color: white;">Data Engineer</a> | 
+                <a href="/DS" style="text-decoration: none; color: white;">Data Science</a>. 
             </p>
         </div>
         <div style="float: right; text-align: right; width: 33%;">
-            <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;">Learn
-                    more</a>
+            <p style="font-size: 17px;">About me <a href="/about" style="text-decoration: none; color: white;">Learn more</a>
             <p style="font-size:17px;">Connect With Me
-                <a href="https://github.com/soham7998/" target="_blank"
-                    style="color: white; text-decoration: none;">Github</a> |
-                <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank"
-                    style="color: white; text-decoration: none;">LinkedIn</a> |
-                <a href="https://www.instagram.com/shah_.soham/" target="_blank"
-                    style="color: white; text-decoration: none;">Instagram</a> |
-                <a href="https://twitter.com/sohamshahh" target="_blank"
-                    style="color: white; text-decoration: none;">Twitter</a>
-            </p>
+            <a href="https://github.com/soham7998/" target="_blank" style="color: white; text-decoration: none;">Github</a> |
+            <a href="https://in.linkedin.com/in/shahsoham2003/" target="_blank" style="color: white; text-decoration: none;">LinkedIn</a> |
+            <a href="https://www.instagram.com/shah_.soham/" target="_blank" style="color: white; text-decoration: none;">Instagram</a> |
+            <a href="https://twitter.com/sohamshahh" target="_blank" style="color: white; text-decoration: none;">Twitter</a></p>    
         </div>
         <div style="clear: both;"></div>
     </footer>
-
-    <!-- VOICE FLOW -->
-    <script type="text/javascript">
-        (function (d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function () {
-                window.voiceflow.chat.load({
-                    verify: { projectID: '6600615ee1b3c7fc8aed9134' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production'
-                });
-            }
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-    </script>
-
-    <script>
-        let animationPaused = false;
-
-        function pauseAnimation() {
-            const image = document.getElementById('changing-image');
-            image.style.animationPlayState = 'paused';
-            animationPaused = true;
-        }
-
-        function resumeAnimation() {
-            if (!animationPaused) return; // If animation is not paused, do nothing
-            const image = document.getElementById('changing-image');
-            image.style.animationPlayState = 'running';
-            animationPaused = false;
-        }
-    </script>
-
-
-    <!-- POPUP -->
-    <script>
-        document.getElementById('sp-link').addEventListener('click', function () {
-            if (!isAuthenticated()) {
-                Swal.fire({
-                    title: 'Sign Up or Log In',
-                    text: 'Please Sign up or Log in to Explore More!',
-                    icon: 'info',
-                    showCancelButton: true,
-                    confirmButtonText: 'Sign Up',
-                    cancelButtonText: 'Log In',
-                    reverseButtons: true, // Display the buttons in reverse order
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Redirect the user to the signup page
-                        window.location.href = '/signup';
-                    } else if (result.dismiss === Swal.DismissReason.cancel) {
-                        // Redirect the user to the login page
-                        window.location.href = '/login';
-                    }
-                });
-            }else{
-                console.log("redirect")
-                window.location.href='/selfpractice'
-
-            }
-        })
-        function isAuthenticated() {
+<script>
+     function isAuthenticated() {
             // Get all cookies
             var cookies = document.cookie.split(";");
             console.log(cookies)
@@ -637,8 +432,10 @@
     window.location.href = "/logout";
 });
 
+
+
     </script>
 
-</body>
 
+</body>
 </html>

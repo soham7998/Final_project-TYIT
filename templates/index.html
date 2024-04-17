@@ -604,7 +604,7 @@ var isAuthentication = isAuthenticationCookie ? true : false;
             var cookie = cookies[i].trim();
             if (cookie.startsWith("isAuthenticated")) {
                 var authValue = cookie.substring("isAuthenticated=".length, cookie.length);
-                console.log(authValue);
+                console.log(typeof authValue);
                 if (authValue === "true") {
                     document.getElementById("divA").style.display = "block";
                 } else {

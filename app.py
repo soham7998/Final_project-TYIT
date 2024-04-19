@@ -52,6 +52,7 @@ def submit_login():
 
         # Set cookies
         response.set_cookie('isAuthenticated', 'true')
+        response.set_cookie('username', username)
 
         return response  
         # return redirect(url_for('index'))  # Redirect to the index page after successful login

@@ -343,7 +343,20 @@
             console.log('null aaya')
             return null;
         }
-        window.onload = function () { getCookieValue('isAuthenticated'); }  
+                window.onload = function () {
+            const isAuthenticated = getCookieValue('isAuthenticated');
+            if (isAuthenticated === 'true') {
+                // Render div A
+                document.getElementById('divA').style.display = 'block';
+                // Hide div B
+                document.getElementById('divB').style.display = 'none';
+            } else {
+                // Hide div A
+                document.getElementById('divA').style.display = 'none';
+                // Render div B
+                document.getElementById('divB').style.display = 'block';
+            }
+        }
     </script>
 </head>
 
@@ -359,18 +372,20 @@
         </div>
         <div class="navbar-center"></div>
         <div class="navbar-right" style="margin-top: 10px;">
-            {% if 'username' in session %}
-            <p style="color: white; margin-right: 10px; margin-top: 5px; font-size: 20px;">Logged in: {{ session['username'] }}</p>
-            <button class="logout-button" id="logout-sos">Logout</button>
-            {% else %}
-            <a href="/login">
-                <button class="login-button">Login</button>
-            </a>
-            {% endif %}
-            {% if 'username' not in session %}
-            <button onclick="location.href='/signup'"
-                style="font-size: 18px; background-color: rgb(243, 178, 103); margin-top: 5px;">Signup</button>
-            {% endif %}
+            <div id="divA" style="display: none;">
+                <p style="color: white; margin-right: 10px; margin-top: 5px; font-size: 20px;">Logged in:
+                    {{session['username'] }}</p>
+                <button class="logout-button" id="logout-sos">Logout</button>
+            </div>
+
+            <div id="divB" style="display: none;">
+
+                <a href="/login">
+                    <button class="login-button">Login</button>
+                </a>
+                <button onclick="location.href='/signup'"
+                    style="font-size: 18px; background-color: rgb(243, 178, 103); margin-top: 5px;">Signup</button>
+            </div>
         </div>
         </div>
         

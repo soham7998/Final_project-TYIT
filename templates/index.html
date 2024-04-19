@@ -330,6 +330,21 @@
             --animate-delay: 1.7s;
         }
     </style>
+        <script>
+        function getCookieValue(cookieName) {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.startsWith(cookieName + '=')) {
+                    console.log(cookie.substring(cookieName.length + 1))
+                    return cookie.substring(cookieName.length + 1);
+                }
+            }
+            console.log('null aaya')
+            return null;
+        }
+        window.onload = function () { getCookieValue('isAuthenticated'); }  
+    </script>
 </head>
 
 <body>

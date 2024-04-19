@@ -330,7 +330,7 @@
             --animate-delay: 1.7s;
         }
     </style>
-        <script>
+    <script>
         function getCookieValue(cookieName) {
             const cookies = document.cookie.split(';');
             for (let cookie of cookies) {
@@ -343,20 +343,21 @@
             console.log('null aaya')
             return null;
         }
-                window.onload = function () {
+        window.onload = function () {
             const isAuthenticated = getCookieValue('isAuthenticated');
             if (isAuthenticated === 'true') {
                 // Render div A
-                document.getElementById('divA').style.display = 'block';
+                document.getElementById('divA').style.display = 'flex';
                 // Hide div B
                 document.getElementById('divB').style.display = 'none';
             } else {
                 // Hide div A
                 document.getElementById('divA').style.display = 'none';
                 // Render div B
-                document.getElementById('divB').style.display = 'block';
+                document.getElementById('divB').style.display = 'flex';
             }
         }
+
     </script>
 </head>
 

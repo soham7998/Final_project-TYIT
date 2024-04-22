@@ -15,7 +15,11 @@
     <link rel="icon" href="static/react.png" sizes="34x34" />
     <style>
         /* Add the following styles for mobile responsiveness */
-        @media (max-width: 768px) {
+        #changing-image {
+            width:45vw;
+            animation: changeImage 4s infinite;
+        }
+        @media screen and (max-width: 768px) {
 
             .navbar-left,
             .navbar-right {
@@ -28,10 +32,7 @@
                 margin: 10px 0;
             }
 
-            #changing-image {
-                width: 100%;
-            }
-
+            
             .page-content {
                 flex-direction: column;
             }
@@ -140,8 +141,8 @@
         }
 
         #changing-image {
-            width: 50%;
-            height: 40%;
+            width:50%;
+            height:40%;
             animation: changeImage 4s infinite;
         }
 
@@ -384,11 +385,11 @@
 
             <div id="divB" style="display: none;">
 
-                <a href="/login">
-                    <button class="login-button">Login</button>
+                <a  href="/login">
+                    <button style="position: relative;"class="login-button">Login</button>
                 </a>
                 <button onclick="location.href='/signup'"
-                    style="font-size: 18px; background-color: rgb(243, 178, 103); margin-top: 5px;">Signup</button>
+                    style="font-size: 18px; background-color: rgb(243, 178, 103); margin-top: 1px;">Signup</button>
             </div>
         </div>
         </div>

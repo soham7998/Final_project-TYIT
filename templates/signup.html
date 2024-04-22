@@ -152,6 +152,29 @@ a {
         max-width: 100%;
     }
 }
+.password-container {
+    position: relative;
+    width: 200px; /* Adjust width as needed */
+}
+
+.password-container input[type="password"] {
+    width: 100%;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.password-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 0.8em; /* Adjust font size as needed */
+    pointer-events: none; /* Prevents clicking/focusing on the placeholder */
+}
+
 
     
     </style>
@@ -181,19 +204,28 @@ a {
     <div class="signup-container">
         <div class="signup-form">
             <h2>Signup</h2>
-            <form action="/database" method="post">
+            <form style="text-align: left;" action="/database" method="post">
                 <!-- Your signup form fields go here -->
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required><br><br>
+                <input style="border-radius: 5px;"  type="text" id="username" name="username" required><br><br>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-
+                <input style="border-radius: 5px;" type="email" id="email" name="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email format"><br><br>
+                        <div style="display: flex;">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br><br>
+                <div class="password-container">
+                <input  style="font-size: 0.9rem;" placeholder="at least six characters long" type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-zA-Z]).{6,}" required>
+                
+                </div>
+</div><br><br>
+                
 
+                
+
+                <div style="display:flex ;justify-content:center; align-items:center ;">
               <!-- <button onclick="cookiemail()">Signup</button> -->
               <button type="submit">Signup</button>
+              </div>
 
             </form>
         </div>

@@ -20,7 +20,7 @@ def button_click():
     email = request.form.get('email')
     password = request.form.get('password')
 
-    client = MongoClient('mongodb+srv://sohamshahh:soham2003@cluster0.x5owqbs.mongodb.net/')
+    client = MongoClient('you atlas cluster link')#I ve removeed my one
     db = client['mydatabase']
     users_collection = db['users']
 

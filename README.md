@@ -24,3 +24,14 @@
 7. JavaScript:
     Purpose: JavaScript is utilized to enhance the user experience of the D3HUB website by adding interactive features, dynamic content loading, form validation, and other client-side functionalities.
 
+
+**Future Work**
+
+The Future Work include in the field of adding Job Roles Section where the JOB’s will be shown Related to Data Analyst, Data Science & Data Engineering 
+New animations for Image side Content and Videos Content.
+New Feature’s Like More Smooth Working and Easy Details of Each Domain and So On. 
+Improved Features and Functionality:
+Focus on enhancing the overall usability and functionality of D3HUB to provide a smoother user experience.
+Introduce new features and tools to facilitate easier navigation, content discovery, and interaction.
+
+

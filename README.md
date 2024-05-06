@@ -1,4 +1,4 @@
-**D3 HUB**
+**D3 HUB: Explore The Data World**
 
 **Introduction**: D3 Hub is described as an online platform dedicated to providing comprehensive resources and guidance for individuals interested in the data world. It aims to serve as a hub for learning and exploration in the fields of data analysis, data engineering, and data science.
 
